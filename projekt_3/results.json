@@ -1,0 +1,38 @@
+{
+    "timestamp": "2026-05-12 09:17:56.410590",
+    "results": [
+        {
+            "name": "Google DNS",
+            "url": "https://dns.google",
+            "status_code": 200,
+            "status": "UP",
+            "response_time_ms": "13"
+        },
+        {
+            "name": "GitHub API",
+            "url": "https://api.github.com",
+            "status_code": 200,
+            "status": "UP",
+            "response_time_ms": "18"
+        },
+        {
+            "name": "httpbin",
+            "url": "https://httpbin.org/get",
+            "status_code": 200,
+            "status": "UP",
+            "response_time_ms": "61"
+        },
+        {
+            "name": "test_wrong_statuscode",
+            "url": "https://httpstat.us/503",
+            "status_code": 200,
+            "status": "DOWN",
+            "response_time_ms": "61"
+        }
+    ],
+    "sumarry": {
+        "total": 4,
+        "up": 3,
+        "down": 1
+    }
+}

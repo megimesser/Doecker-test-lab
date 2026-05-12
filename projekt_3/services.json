@@ -1,0 +1,8 @@
+{
+    "services": [
+        {"name": "Google DNS", "url": "https://dns.google"},
+        {"name": "GitHub API", "url": "https://api.github.com"},
+        {"name": "httpbin", "url": "https://httpbin.org/get"},
+        {"name": "test_wrong_statuscode", "url": "https://httpstat.us/503"}
+    ]
+}
