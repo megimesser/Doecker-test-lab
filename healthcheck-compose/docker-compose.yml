@@ -1,16 +1,29 @@
 services:
   server:
     image: server:latest
-    build: ./app
+    build: ./api
     ports:
       - "5000:5000"
     environment:
       - APP_ENV=production
     volumes:
       - testvol:/app/output
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
   healthcheck:
-    image: healthcheck:latest
-    
+    build: ./monitor
+    depends_on:
+      server:
+        condition: service_healthy
+    environment:
+      - APP_TIMEOUT=5
+    volumes:
+      - ./monitor/services.json:/app/config/services.json
+      - testvol:/app/output
 
 volumes:
   testvol:

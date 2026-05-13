@@ -11,7 +11,7 @@ def request(link):
     r = requests.get(link, timeout=us)
     return r.status_code
 
-with open("services.json", "r") as file:
+with open("/app/config/services.json", "r") as file:
     data = json.load(file)
 
 
@@ -32,6 +32,6 @@ for service in data["services"]:
 
 print(report)
 
-with open("health_report.json", "w") as file:
+with open("/app/output/health_report.json", "w") as file:
     json.dump(report, file, indent=4)
 
