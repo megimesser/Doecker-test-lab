@@ -1,0 +1,14 @@
+[
+    {
+        "name": "API Health",
+        "status": 200
+    },
+    {
+        "name": "API Info",
+        "status": 200
+    },
+    {
+        "name": "Absichtlich kaputt",
+        "status": 404
+    }
+]

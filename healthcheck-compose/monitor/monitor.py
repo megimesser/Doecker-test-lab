@@ -1,29 +1,37 @@
 import requests
-import json 
+import json
+import os 
 
+us = os.environ.get("APP_TIMEOUT")
+us = int(us)
+
+report = []
+
+def request(link):
+    r = requests.get(link, timeout=us)
+    return r.status_code
 
 with open("services.json", "r") as file:
     data = json.load(file)
 
-print(data)
 
+for service in data["services"]:
+    link = service["url"]
+    #print(link)
 
-#def request():
-#    r = requests.get()
+    try:
+        status = request(link)
+    except requests.exceptions.RequestException as e:
+        print("Fehler:", e)
+        status = "error"
 
+    report.append({
+        "name": service["name"],
+        "status": status
+    })
 
-blanko = {
-    "services": [
-        {"name": "API Health", "url": "http://api-server:5000/health"},
-        {"name": "API Info", "url": "http://api-server:5000/info"},
-        {"name": "Absichtlich kaputt", "url": "http://api-server:5000/nonexistent"}
-    ]
-}
+print(report)
 
+with open("health_report.json", "w") as file:
+    json.dump(report, file, indent=4)
 
-print(len(blanko["services"]))
-x = len(blanko["services"])
-
-for i in blanko["services"]:
-    #try 
-    print(i["url"])
