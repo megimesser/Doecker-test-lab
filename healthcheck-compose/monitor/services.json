@@ -1,0 +1,7 @@
+{
+    "services": [
+        {"name": "API Health", "url": "http://172.0.0.1:5000/health"},
+        {"name": "API Info", "url": "http://172.0.0.1:5000/info"},
+        {"name": "Absichtlich kaputt", "url": "http://172.0.0.1:5000/nonexistent"}
+    ]
+}
