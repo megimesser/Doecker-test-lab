@@ -67,6 +67,16 @@ with open("summary.json", "w", encoding="utf-8") as datei:
 
 
 
+result = subprocess.run(
+    "cp summary.json /app/logs/json",
+    shell=True,
+    capture_output=True,
+    text=True
+)
+
+print(result.stdout)
+
+
 
 
 
