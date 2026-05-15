@@ -1,0 +1,44 @@
+Hier ist das vollständige tägliche Briefing für den **13. Mai 2026**:
+
+---
+
+# 🗞️ MCI DAILY TECH BRIEFING — 13. Mai 2026
+
+> **Erstellungsdatum:** 13. Mai 2026 | **Umfang:** Politik · Gaming · IT/Tech · Cybersecurity · KI/AI · Softwareentwicklung · Cloud/Infrastruktur · Open Source · Wirtschaft · Digitale Trends · Social Media
+
+---
+
+## ⚠️ STRATEGISCHE HIGHLIGHTS DES TAGES
+
+> Die folgenden Themen sind von besonders hoher strategischer Relevanz und sollten bevorzugt behandelt werden.
+
+---
+
+## 🔴 BREAKING / TOP-PRIORITÄT
+
+---
+
+### 1. 🧨 Supply-Chain-Worm „Mini Shai-Hulud" trifft npm & PyPI massiv
+
+| Attribut | Details |
+|---|---|
+| **Kategorie** | Cybersecurity / Softwareentwicklung / Open Source |
+| **Relevanzbewertung** | 🔴 **10/10** |
+
+**Kurzbeschreibung:**
+Bedrohungsakteur **TeamPCP** hat npm- und PyPI-Pakete von TanStack, UiPath, Mistral AI, OpenSearch und Guardrails AI im Rahmen einer frischen „Mini Shai-Hulud"-Kampagne kompromittiert. Nach Daten von OX Security sind über 170 Pakete aus npm- und PyPI-Registries betroffen, die kumuliert mehr als 518 Millionen Downloads aufweisen. Allein Pakete im `@tanstack`-Namespace, darunter `@tanstack/react-router` – eine der am weitesten verbreiteten Routing-Bibliotheken im React-Ökosystem –, verzeichnen rund 12 Millionen wöchentliche Downloads.
+
+Dies ist zudem der erste dokumentierte Fall eines schadhaften npm-Pakets mit valider **SLSA-Provenance** – einem kryptografischen Zertifikat von Sigstore, das eigentlich die Herkunft aus einer vertrauenswürdigen Quelle belegen soll.
+
+Der Angriff erlaubt es, Credentials zu stehlen, sich selbst durch das npm-Ökosystem fortzupflanzen und potenziell Entwickler-Home-Verzeichnisse durch einen persistenten destruktiven Daemon zu löschen.
+
+**Empfohlene Sofortmaßnahmen:**
+Alle GitHub-Tokens, npm-Tokens, AWS-Credentials, Vault-Tokens, Kubernetes-Servicekonten und CI/CD-Secrets sollten unverzüglich rotiert werden, sofern eine Exposition vermutet wird.
+
+**Mögliche Auswirkungen / Risiken:**
+- Direktes Risiko für alle Entwicklungsteams, die betroffene Pakete nutzen
+- CI/CD-Pipelines und GitHub Actions als neuer Angriffsvektor
+- Vertrauensverlust in Paket-Lieferketten (npm, PyPI)
+- Erhöhtes Risiko für KI-Entwicklungstools (Mistral AI, Guardrails AI betroffen)
+
+**Quellen:** [The Hacker News](https://thehackernews.com/2026/05/mini-shai-hulud-worm-compromises.html) | [Wiz Blog](https://www.wiz.io/blog/mini-shai-hulud-strikes-again-tanstack-more-npm-packages-compromised) | [Heise Online](https://www

@@ -9,6 +9,7 @@ services:
     volumes:
       - testvol:/app/output
     healthcheck:
+<<<<<<< HEAD
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')"]
       interval: 5s
       timeout: 3s
@@ -24,6 +25,22 @@ services:
     volumes:
       - ./monitor/services.json:/app/config/services.json
       - testvol:/app/output
+=======
+      test: ["requests.get", "http://127.0.0.1:5000/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+>>>>>>> 7b972b3 (project claude analyzer)
 
+  healthcheck:
+    build: ./monitor
+    depends_on:
+      server:
+        condition: service_healthy
+    environment:
+      - APP_TIMEOUT=5
+    volumes:
+      - ./monitor/services.json:/app/config/services.json
+      - testvol:/app/output
 volumes:
   testvol:

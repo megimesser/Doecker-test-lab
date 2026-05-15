@@ -11,7 +11,11 @@ def request(link):
     r = requests.get(link, timeout=us)
     return r.status_code
 
+<<<<<<< HEAD
 with open("/app/config/services.json", "r") as file:
+=======
+with open("app/config/services.json", "r") as file:
+>>>>>>> 7b972b3 (project claude analyzer)
     data = json.load(file)
 
 

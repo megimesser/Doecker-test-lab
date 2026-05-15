@@ -1,0 +1,7 @@
+services:
+  analyzer:
+    image: analyzer:latest
+    build: ./analyzer #der Buildordner  - wo liegt der Dockerfile 
+    env_file:
+      - .env
+    
