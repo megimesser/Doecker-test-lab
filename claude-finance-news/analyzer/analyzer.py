@@ -4,7 +4,7 @@ import json
 import time
 
 #Nach test löschen 
-api_key= os.getenv("CLAUDE_KEY")
+api_key=os.getenv("CLAUDE_KEY")
 
 
 with open("systemprompt.txt", "r") as message:
@@ -61,6 +61,6 @@ with open("antwort.txt", "w", encoding="utf-8") as file:
 
 
 
-time.sleep(20)
+#time.sleep(20)
 import sender
-#sender.sender()
+sender.sender()

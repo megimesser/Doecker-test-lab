@@ -5,8 +5,6 @@ from datetime import *
 import os 
 
 
-
-
 def sender():
 
     with open ("antwort.txt" , "r") as file:
@@ -20,6 +18,8 @@ def sender():
     print(cut_datum)
 
     GOOGLE_KEY = os.getenv("GOOGLE_KEY")
+    GOOGLE_KEY=str(GOOGLE_KEY)
+    GOOGLE_KEY="aizd mbzw grih lvti"
 
     #app - pw unbedingt nach Fertigstellung löschen 
     ACCOUNT="megimesser96@gmail.com"
@@ -35,4 +35,5 @@ def sender():
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
         smtp.login(ACCOUNT, GOOGLE_KEY)
         smtp.send_message(msg)
+
 

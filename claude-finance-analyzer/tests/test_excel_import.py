@@ -1,6 +1,8 @@
 import pytest 
 import pandas as pd
 
+# pytest -v muss immer vom Rootverzeichnis ausgeführt werden 
+
 # Ornder - Datei - Funktion 
 from importer.importer import importer
 
