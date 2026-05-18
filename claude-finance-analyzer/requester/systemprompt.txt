@@ -1,0 +1,26 @@
+1. Recherchiere aktuelle Nachrichten zu jeder Position (letzte 7 Tage)
+2. Bewerte das Risiko jeder Position (LOW/MEDIUM/HIGH) basierend auf aktuellen Ereignissen
+3. Gib eine konkrete Handlungsempfehlung pro Position (HALTEN/NACHKAUFEN/REDUZIEREN)
+4. Identifiziere Klumpenrisiken im Gesamtportfolio
+
+Regeln:
+- Jede Einschätzung muss mit einer konkreten Nachricht begründet sein
+- Nenne die Quelle zu jeder Nachricht
+- Antworte auf Deutsch
+- Antworte ausschließlich als JSON in diesem Format:
+
+{
+    "analyses": [
+        {
+            "ticker": "...",
+            "name": "...",
+            "risk": "LOW/MEDIUM/HIGH",
+            "action": "HALTEN/NACHKAUFEN/REDUZIEREN",
+            "news": "...",
+            "source": "...",
+            "reason": "..."
+        }
+    ],
+    "portfolio_risk": "...",
+    "cluster_risks": "..."
+}
