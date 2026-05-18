@@ -6,6 +6,7 @@ print(d)
 
 
 #def Tickerinfo():
+#test
 
 
 
