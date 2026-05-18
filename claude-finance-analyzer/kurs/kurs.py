@@ -1,8 +1,18 @@
 import yfinance as yf 
-from importer.importer import ticker_format, importer
+from importer.importer import importer, ticker_format
 
-d = ticker_format(importer())
-print(d)
+
+# python -m kurs.kurs -> 
+kürzel = ticker_format(importer("finance.xlsx"))
+#print(kürzel)
+
+
+
+def finance_info(kürzel):
+    test = kürzel
+    return test
+
+print(finance_info(kürzel))
 
 
 #def Tickerinfo():
