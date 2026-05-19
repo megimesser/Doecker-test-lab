@@ -14,7 +14,7 @@ def format_portfolio(df):
         #Buyin soll hier noch hinzugefügt werden
         portfolio_text += f"{row["Ticker"]} - {row['Aktie']} - Einlage: {row['Menge']} \n"
     for _, row in df.iterrows():
-        portfolio_list.append({row["Ticker"]})
+        portfolio_list.append({row["Ticker"],row["Menge"],row["Aktie"]})
     return portfolio_list
 
 #Aktienticker extrahieren 
@@ -29,7 +29,7 @@ def ticker_format(df):
 # Sogenannter "Guard" - Block wird nur ausgeführt wenn Script direkt gestartet wird 
 if __name__ == "__main__":
     df = importer("finance.xlsx")
-    print(df.columns.tolist())
+    #print(df.columns.tolist())
     print(format_portfolio(df))
    
-    print(ticker_format(df))
+    #print(ticker_format(df))
