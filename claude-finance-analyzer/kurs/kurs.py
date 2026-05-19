@@ -13,7 +13,8 @@ def finance_info(kürzel):
     analyse_list = []
     for i in kürzel:
         ticker = yf.Ticker(i)
-        #print(dat.history(period='1mo'))
+        history = ticker.history(period='10d')
+        #print(ticker.history(period='10d'))
         info = ticker.info
 
         relevant = {
@@ -28,6 +29,8 @@ def finance_info(kürzel):
             "analyst_target": info.get("targetMeanPrice"),
             "beta": info.get("beta"),
             "market_cap": info.get("marketCap"),
+            "history": history
+
         }
 
         analyse_list.append(relevant)
