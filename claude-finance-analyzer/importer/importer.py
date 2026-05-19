@@ -8,11 +8,16 @@ def importer(filepath):
 
 def format_portfolio(df):
     portfolio_text = "Mein Portfolio:\n"
+    portfolio_list = []
     # _, -> erster Wert wird ignoriert Index 
     for _, row in df.iterrows():
-        portfolio_text += f"{row['Aktie']} - Einlage: {row['Menge']}\n"
-    return portfolio_text
+        #Buyin soll hier noch hinzugefügt werden
+        portfolio_text += f"{row["Ticker"]} - {row['Aktie']} - Einlage: {row['Menge']} \n"
+    for _, row in df.iterrows():
+        portfolio_list.append({row["Ticker"]})
+    return portfolio_list
 
+#Aktienticker extrahieren 
 def ticker_format(df):
     ticker = []
     for _, row in df.iterrows():
@@ -26,4 +31,5 @@ if __name__ == "__main__":
     df = importer("finance.xlsx")
     print(df.columns.tolist())
     print(format_portfolio(df))
+   
     print(ticker_format(df))
