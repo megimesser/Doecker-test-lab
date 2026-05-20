@@ -11,7 +11,7 @@ test = importer("finance.xlsx")
 json_path = "finance.json"
 formator= format_portfolio(test)
 
-print(formator)
+#print(formator)
 
 
 with open(json_path, "r") as f:
@@ -20,31 +20,31 @@ with open(json_path, "r") as f:
 #print(data)
 
 
-for i in data:
-     print(i["ticker"])
+
+for ticker in data:
+    print(ticker)
      
      
 
 
 #print(type(formator))
 
-# Loop durch die Exceldaten
-for i in formator:
-    #Loop durch die Dictionarys der Exceldaten
-    for l in i:
-        # Loop durch diee finance.json -> API Anfrage 
-        for s in data:
-             # Beim übereinstimmen der "ticker" welche in beiden Datensätzen vorhanden sind -> if Statement
-             if s["ticker"] == l:
-                  for number in i: 
-                       if isinstance(number, float):
-                              with open(json_path, "w") as f:
-                                    json.dump(number, f, indent=4, ensure_ascii=False)
+# 1. JSON einlesen
+with open(json_path, "r") as f:
+    data = json.load(f)
 
-                            #print(f"{i} dick")
-                  #with open(json_path, "w") as f:
-                    #   json.dump
+# 2. Für jeden API-Eintrag den passenden Excel-Eintrag finden
+for stock in data:
+    for excel_row in formator:
+        if stock["ticker"] in excel_row:
+            for value in excel_row:
+                if isinstance(value, float):
+                    stock["Eigenkapital"] = value
+                    break
 
+# 3. Zurückschreiben
+with open(json_path, "w") as f:
+    json.dump(data, f, indent=4, ensure_ascii=False)
 
 
 

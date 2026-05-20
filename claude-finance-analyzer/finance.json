@@ -12,7 +12,8 @@
         "analyst_target": null,
         "beta": null,
         "market_cap": null,
-        "monthly_change": 3.67
+        "monthly_change": 4.16,
+        "Eigenkapital": 1687.96
     },
     {
         "ticker": "EUNL.DE",
@@ -27,7 +28,8 @@
         "analyst_target": null,
         "beta": null,
         "market_cap": null,
-        "monthly_change": 1.12
+        "monthly_change": 1.47,
+        "Eigenkapital": 1204.5
     },
     {
         "ticker": "QDVE.DE",
@@ -42,52 +44,56 @@
         "analyst_target": null,
         "beta": null,
         "market_cap": null,
-        "monthly_change": 4.53
+        "monthly_change": 3.96,
+        "Eigenkapital": 820.51
     },
     {
         "ticker": "NVDA",
         "name": "NVIDIA Corporation",
         "sector": "Technology",
-        "current_price": 222.32,
+        "current_price": 223.47,
         "52w_high": 236.54,
         "52w_low": 129.16,
-        "pe_ratio": 45.464214,
+        "pe_ratio": 45.60612,
         "dividend_yield": 0.02,
         "recommendation": "strong_buy",
-        "analyst_target": 272.93738,
+        "analyst_target": 275.3058,
         "beta": 2.244,
-        "market_cap": 5384707244032,
-        "monthly_change": 13.14
+        "market_cap": 5412560568320,
+        "monthly_change": 5.66,
+        "Eigenkapital": 562.55
     },
     {
         "ticker": "CRWD",
         "name": "CrowdStrike Holdings, Inc.",
         "sector": "Technology",
-        "current_price": 618.83,
-        "52w_high": 621.05,
+        "current_price": 650.11,
+        "52w_high": 651.0,
         "52w_low": 342.72,
         "pe_ratio": null,
         "dividend_yield": null,
         "recommendation": "buy",
         "analyst_target": 508.80234,
         "beta": 1.06,
-        "market_cap": 157514842112,
-        "monthly_change": 29.86
+        "market_cap": 165476745216,
+        "monthly_change": 28.55,
+        "Eigenkapital": 226.92
     },
     {
         "ticker": "TSLA",
         "name": "Tesla, Inc.",
         "sector": "Consumer Cyclical",
-        "current_price": 409.99,
+        "current_price": 417.26,
         "52w_high": 498.83,
         "52w_low": 273.21,
-        "pe_ratio": 369.36035,
+        "pe_ratio": 382.80734,
         "dividend_yield": null,
         "recommendation": "buy",
         "analyst_target": 411.8878,
         "beta": 1.793,
-        "market_cap": 1539809214464,
-        "monthly_change": 5.3
+        "market_cap": 1567113347072,
+        "monthly_change": 1.33,
+        "Eigenkapital": 201.53
     },
     {
         "ticker": "SGLD.DE",
@@ -102,7 +108,8 @@
         "analyst_target": null,
         "beta": null,
         "market_cap": null,
-        "monthly_change": null
+        "monthly_change": null,
+        "Eigenkapital": 121.38
     },
     {
         "ticker": "BTC",
@@ -117,7 +124,8 @@
         "analyst_target": null,
         "beta": null,
         "market_cap": null,
-        "monthly_change": -5.95
+        "monthly_change": -3.16,
+        "Eigenkapital": 87.25
     },
     {
         "ticker": "PHAU",
@@ -132,51 +140,55 @@
         "analyst_target": null,
         "beta": null,
         "market_cap": null,
-        "monthly_change": null
+        "monthly_change": null,
+        "Eigenkapital": 43.02
     },
     {
         "ticker": "AAPL",
         "name": "Apple Inc.",
         "sector": "Technology",
-        "current_price": 297.84,
+        "current_price": 302.25,
         "52w_high": 303.2,
         "52w_low": 193.46,
-        "pe_ratio": 36.101818,
+        "pe_ratio": 36.636364,
         "dividend_yield": 0.36,
         "recommendation": "buy",
         "analyst_target": 308.06512,
         "beta": 1.065,
-        "market_cap": 4374482124800,
-        "monthly_change": 4.9
+        "market_cap": 4439253450752,
+        "monthly_change": 5.25,
+        "Eigenkapital": 31.0
     },
     {
         "ticker": "META",
         "name": "Meta Platforms, Inc.",
         "sector": "Communication Services",
-        "current_price": 611.21,
+        "current_price": 605.06,
         "52w_high": 796.25,
         "52w_low": 520.26,
-        "pe_ratio": 22.225819,
-        "dividend_yield": 0.34,
+        "pe_ratio": 22.018196,
+        "dividend_yield": 0.35,
         "recommendation": "strong_buy",
         "analyst_target": 826.69104,
         "beta": 1.243,
-        "market_cap": 1551509749760,
-        "monthly_change": 1.03
+        "market_cap": 1535898419200,
+        "monthly_change": -1.9,
+        "Eigenkapital": 27.83
     },
     {
         "ticker": "NFLX",
         "name": "Netflix, Inc.",
         "sector": "Communication Services",
-        "current_price": 89.65,
+        "current_price": 88.09,
         "52w_high": 134.115,
         "52w_low": 75.01,
-        "pe_ratio": 28.919355,
+        "pe_ratio": 28.416128,
         "dividend_yield": null,
         "recommendation": "buy",
         "analyst_target": 114.555,
         "beta": 1.548,
-        "market_cap": 377498107904,
-        "monthly_change": 2.0
+        "market_cap": 370929238016,
+        "monthly_change": -0.18,
+        "Eigenkapital": 29.46
     }
 ]

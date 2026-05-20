@@ -23,6 +23,7 @@ def finance_info(kürzel):
         info = ticker.info
 
         relevant = {
+            
             "ticker": i,
             "name": info.get("shortName"),
             "sector": info.get("sector"),
@@ -35,9 +36,11 @@ def finance_info(kürzel):
             "analyst_target": info.get("targetMeanPrice"),
             "beta": info.get("beta"),
             "market_cap": info.get("marketCap"),
-            "monthly_change": monthly_change
+            "monthly_change": monthly_change,
+            "Eigenkapital": 0 
 
         }
+      
 
         analyse_list.append(relevant)
 
@@ -53,17 +56,3 @@ print(analyse_list)
 with open("finance.json", "w", encoding="utf-8") as file:
     json.dump(analyse_list, file, indent=4, ensure_ascii=False)
 
-"""
-
-#def Tickerinfo():
-#test
-
-
-dat = yf.Ticker("AAPL")
-print(dat.info)
-print(dat.history(period='1mo'))
-
-#tickers = yf.Tickers('MSFT AAPL GOOG')
-#yf.download(['MSFT', 'AAPL', 'GOOG'], period='1mo')
-
-"""
