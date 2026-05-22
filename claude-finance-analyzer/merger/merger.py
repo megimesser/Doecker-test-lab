@@ -14,48 +14,39 @@ formator= format_portfolio(test)
 #print(formator)
 
 
-with open(json_path, "r") as f:
-        data = json.load(f)
-
-#print(data)
-
-
-
-for ticker in data:
-    print(ticker)
-     
-     
-
-
+def merger(json_path,formator):
 #print(type(formator))
 
-# 1. JSON einlesen
-with open(json_path, "r") as f:
-    data = json.load(f)
+    # 1. JSON einlesen
+    with open(json_path, "r") as f:
+        data = json.load(f)
 
-# 2. Für jeden API-Eintrag den passenden Excel-Eintrag finden
+    # 2. Für jeden API-Eintrag den passenden Excel-Eintrag finden
 
-#Iteration durch die API Json
-for stock in data:
-    # Iteration durch die Excel
-    for excel_row in formator:
-        # Wenn der Ticker der Excel die der Json matcht
-        if stock["ticker"] in excel_row:
-            # Iteration durch die Exceldictionarys nach dem Value
-            for value in excel_row:
-                if isinstance(value, float):
-                    #Zugriff auf Eigenkapitalfeld 
-                    stock["Eigenkapital"] = value
-                    break
+    #Iteration durch die API Json
+    for stock in data:
+        # Iteration durch die Excel
+        for excel_row in formator:
+            # Wenn der Ticker der Excel die der Json matcht
+            if stock["ticker"] in excel_row:
+                # Iteration durch die Exceldictionarys nach dem Value
+                for value in excel_row:
+                    if isinstance(value, float):
+                        #Zugriff auf Eigenkapitalfeld 
+                        stock["Eigenkapital"] = value
+                        break
 
-# 3. Zurückschreiben
-with open(json_path, "w") as f:
-    json.dump(data, f, indent=4, ensure_ascii=False)
+    # 3. Zurückschreiben
+    with open(json_path, "w") as f:
+        json.dump(data, f, indent=4, ensure_ascii=False)
 
-#test
+    f = "merge abgeschlossen"
+    return f
 
 
 
+
+"""
 
 def merger(formator, json_path):
     format = formator
@@ -67,7 +58,7 @@ def merger(formator, json_path):
         
 
     return 
-
+"""
 
 #print(json_reader(json_path))
 
@@ -76,5 +67,6 @@ if __name__ == "__main__":
     #df = importer("finance.xlsx")
     #print(df.columns.tolist())
     #print(format_portfolio(df))
-    print(json_reader(json_path))
+    #print(json_reader(json_path))
+    print(merger(json_path,formator))
    
