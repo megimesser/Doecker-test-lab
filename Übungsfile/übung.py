@@ -475,12 +475,26 @@ Mach jeden Drill einmal, markiere wo du nachschauen musstest, und wiederhole gen
 
 15 Neue Drills
 Block 1 – List Comprehensions (deine größte Lücke)
+
+
+
+
+
+
 Drill 1: Gegeben ist eine Liste words = ["hello", "world", "python", "docker", "api"]. Erstelle per List Comprehension eine neue Liste die nur Wörter mit mehr als 4 Buchstaben enthält.
 Drill 2: Gegeben ist numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]. Erstelle per List Comprehension eine Liste von Strings: ["1 ist ungerade", "2 ist gerade", "3 ist ungerade", ...]. Tipp: Ternary Operator in der Comprehension: "gerade" if x % 2 == 0 else "ungerade".
 Drill 3: Gegeben sind zwei Listen: tickers = ["AAPL", "MSFT", "TSLA"] und prices = [300, 420, 180]. Erstelle per List Comprehension eine Liste von Dictionaries: [{"ticker": "AAPL", "price": 300}, ...]. Nutze zip() innerhalb der Comprehension.
 Drill 4: Gegeben ist eine verschachtelte Liste: matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]. Flache sie zu einer einzigen Liste ab per List Comprehension: [1, 2, 3, 4, 5, 6, 7, 8, 9].
 Block 2 – Funktionen und Return-Werte
 Drill 5: Schreibe eine Funktion analyze_stock(ticker, buy, current, shares) die ein Dictionary zurückgibt mit den Keys ticker, profit, profit_pct, status. Status ist "GEWINN" wenn Profit positiv, "VERLUST" wenn negativ, "NEUTRAL" wenn null.
+
+"""
+
+
+
+"""
+
+
 Drill 6: Schreibe eine Funktion best_performer(stocks) die eine Liste von Dictionaries nimmt (jeweils mit ticker und profit_pct) und den Ticker mit der höchsten prozentualen Performance zurückgibt. Nutze max() mit key-Parameter.
 Drill 7: Schreibe eine Funktion format_report(stocks) die eine Liste von Stock-Dictionaries nimmt und einen formatierten String zurückgibt. Jede Zeile soll aussehen wie: "AAPL: +15.30% (GEWINN)". Nutze einen f-String mit :.2f für die Prozent-Formatierung.
 Block 3 – Dictionary-Operationen
@@ -657,3 +671,124 @@ test = [2,2,2]
 test = [x for x in test if x >1 ]
 test = [x * 2 for x in test]
 print(test)
+
+
+
+
+#### 21.05.
+
+"""
+20 Drills – zugeschnitten auf deine Schwächen
+Block 1 – List Comprehensions (musst du drillen bis es sitzt)
+Drill 1: Schreibe die folgende for-Loop als List Comprehension um:
+pythonresult = []
+for x in [10, 20, 30, 40, 50]:
+    if x > 25:
+        result.append(x)
+
+
+"""
+
+
+list = [10,20,30,40,50]
+results = []
+
+listcom = [results.append(x) for x in list if x > 25]
+
+
+"""
+
+
+
+Drill 2: Schreibe die folgende for-Loop als List Comprehension um:
+pythonresult = []
+for x in [1, 2, 3, 4, 5]:
+    result.append(x * 10)
+Drill 3: Schreibe eine List Comprehension die aus einer Liste von Dictionaries nur die Ticker extrahiert:
+pythonstocks = [{"ticker": "AAPL", "price": 300}, {"ticker": "MSFT", "price": 420}]
+# Ergebnis: ["AAPL", "MSFT"]
+Drill 4: Schreibe eine List Comprehension mit if/else: Gegeben ist numbers = [1, 2, 3, 4, 5, 6]. Erstelle eine Liste die "gerade" oder "ungerade" für jede Zahl enthält.
+Drill 5: Schreibe eine Funktion die nur eine Zeile hat – eine List Comprehension im Return:
+pythondef get_expensive(stocks, min_price):
+    # return alle stocks wo price > min_price
+Block 2 – Direkt ins Dictionary schreiben (dein Hauptfehler heute)
+Drill 6: Gegeben ist ein Dictionary. Ändere den Wert direkt, ohne Zwischenvariable:
+pythonstock = {"ticker": "AAPL", "price": 300, "status": "unknown"}
+# Setze status auf "UP" – in einer Zeile
+Drill 7: Loope durch eine Liste von Dictionaries und füge jedem einen neuen Key hinzu:
+pythonstocks = [
+    {"ticker": "AAPL", "price": 300},
+    {"ticker": "MSFT", "price": 420},
+    {"ticker": "TSLA", "price": 180},
+]
+# Füge jedem Dict den Key "expensive" hinzu: True wenn price > 250, sonst False
+Drill 8: Zwei Datensätze mergen über einen gemeinsamen Key, direkt ins Dictionary:
+pythonportfolio = {"AAPL": {"shares": 10}, "MSFT": {"shares": 5}}
+prices = {"AAPL": 300, "MSFT": 420}
+# Ergebnis: {"AAPL": {"shares": 10, "price": 300}, "MSFT": {"shares": 5, "price": 420}}
+Block 3 – break und Loop-Kontrolle
+Drill 9: Finde den ersten Stock mit Preis über 400 und stoppe den Loop:
+pythonstocks = [
+    {"ticker": "AAPL", "price": 300},
+    {"ticker": "MSFT", "price": 420},
+    {"ticker": "TSLA", "price": 180},
+]
+# Printe nur MSFT, dann break
+Drill 10: Verschachtelter Loop mit break: Finde in welchem Portfolio ein bestimmter Ticker steckt:
+pythonportfolios = {
+    "tech": ["AAPL", "MSFT", "NVDA"],
+    "auto": ["TSLA", "BMW", "VW"],
+    "crypto": ["BTC", "ETH", "SOL"],
+}
+# Finde "TSLA" – printe "TSLA gefunden in auto" und brich beide Loops ab
+Drill 11: Loop mit continue: Überspringe alle Einträge die None als Price haben:
+pythonstocks = [
+    {"ticker": "AAPL", "price": 300},
+    {"ticker": "EUNL", "price": None},
+    {"ticker": "MSFT", "price": 420},
+    {"ticker": "SGLD", "price": None},
+]
+# Printe nur AAPL und MSFT
+Block 4 – json.dump Position und File I/O
+Drill 12: Falsch vs. richtig. Korrigiere diesen Code:
+pythonfor stock in stocks:
+    stock["profit"] = stock["current"] - stock["buy"]
+    with open("output.json", "w") as f:
+        json.dump(stock, f, indent=4)
+Drill 13: Schreibe den kompletten Read-Modify-Write-Zyklus für JSON:
+python# 1. JSON einlesen
+# 2. Einen Wert im Dictionary ändern
+# 3. Gesamte Datei zurückschreiben
+Drill 14: Schreibe eine Funktion update_portfolio(filepath, ticker, new_price) die eine JSON-Datei einliest, den Preis eines bestimmten Tickers ändert, und die Datei zurückschreibt.
+Block 5 – f-String Formatierung
+Drill 15: Formatiere diese Ausgabe exakt: "AAPL:    300.23€  (+12.80%)". Nutze nur f-String-Syntax, kein math-Modul:
+pythonticker = "AAPL"
+price = 300.2345
+change = 12.7956
+# :.2f für Dezimalstellen, :>10 für Rechtsbündigkeit
+Drill 16: Erstelle eine formatierte Tabelle per Loop:
+pythonstocks = [("AAPL", 300.5, 12.8), ("MSFT", 420.123, -3.2), ("TSLA", 180.9, 45.6)]
+# Ausgabe:
+# AAPL   300.50€   +12.80%
+# MSFT   420.12€    -3.20%
+# TSLA   180.90€   +45.60%
+Block 6 – Funktionen mit sauberem Return
+Drill 17: Korrigiere diese Funktion:
+pythondef get_total(price, shares):
+    total = price * shares
+    return print(total)
+Drill 18: Schreibe eine Funktion die ein Dictionary zurückgibt, nicht printet:
+pythondef analyze(ticker, buy, current, shares):
+    # berechne profit und profit_pct
+    # return {"ticker": ticker, "profit": ..., "profit_pct": ..., "status": "GEWINN"/"VERLUST"}
+Block 7 – dict.get() mit Default
+Drill 19: Nutze dict.get() um sicher auf fehlende Keys zuzugreifen:
+pythonstock = {"ticker": "AAPL", "price": 300}
+# Greife auf "dividend_yield" zu – soll 0 zurückgeben wenn nicht vorhanden
+# Greife auf "sector" zu – soll "Unknown" zurückgeben wenn nicht vorhanden
+Drill 20: Zähle mit dict.get() Vorkommen in einer Liste:
+pythonlogs = ["ERROR", "INFO", "ERROR", "WARNING", "INFO", "INFO", "ERROR"]
+# Erstelle: {"ERROR": 3, "INFO": 3, "WARNING": 1}
+# Nutze: counts[level] = counts.get(level, 0) + 1
+
+"""
