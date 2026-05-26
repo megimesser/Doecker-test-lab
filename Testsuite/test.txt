@@ -1,0 +1,15 @@
+❌ Status 404 — fehlgeschlagen
+✅ Status 200 — Seite erreichbar
+Titel: Wohn.Bau.Trend.
+✅ Status 200 — Seite erreichbar
+Titel: Aussteller-Links
+✅ Status 200 — Seite erreichbar
+Titel: Besucher-Links
+✅ Status 200 — Seite erreichbar
+Titel: Über uns
+✅ Status 200 — Seite erreichbar
+Titel: Aktuelles
+✅ Status 200 — Seite erreichbar
+Titel: Messeanmeldung
+✅ Status 200 — Seite erreichbar
+Titel: Freikarte Formular
