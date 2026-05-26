@@ -41,7 +41,7 @@ def requester(links):
         else:
             print(f"❌ Status {response.status_code} — Seitenaufruf fehlgeschlagen")
             message_string += f"❌ Status {response.status_code} — fehlgeschlagen\n"
-            message_string += f"Titel: {titel}\n"
+            #message_string += f"Titel: {titel}\n"
     
     seiten_erreichbar = int(seiten_erreichbar)
 
@@ -50,5 +50,7 @@ def requester(links):
 
 ### Function callingd ### 
 
-message_emptyer(txt_path, message="")
-text_writer(txt_path, requester(hauptseiten_links))   # Reihenfolge: path, message
+if __name__ == "__main__":
+    message_emptyer(txt_path, message="")
+    ergebnis = requester(hauptseiten_links)
+    text_writer(txt_path, ergebnis)

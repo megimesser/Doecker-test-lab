@@ -1,21 +1,11 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
+from seitenaufruf import requester
+from seitenaufruf import *
+from seitenaufruf import hauptseiten_links
+from seitenaufruf import txt_path
 
-driver = webdriver.Chrome()
 
-driver.get("https://www.selenium.dev/selenium/web/web-form.html")
+#Textdatei leeren
+message_emptyer(txt_path, message="")
 
-title = driver.title
-
-driver.implicitly_wait(0.5)
-
-text_box = driver.find_element(by=By.NAME, value="my-text")
-submit_button = driver.find_element(by=By.CSS_SELECTOR, value="button")
-
-text_box.send_keys("Selenium")
-submit_button.click()
-
-message = driver.find_element(by=By.ID, value="message")
-text = message.text
-
-driver.quit()
+#Request + in Testdatei schreiben
+text_writer(txt_path, requester(hauptseiten_links))   # Reihenfolge: path, message
