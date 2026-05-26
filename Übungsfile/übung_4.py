@@ -206,6 +206,7 @@ for i in pythonstocks:
 print(var)
 
 
+# and für logische Bedingungen und & für Bitoperations 
 
 """
 
@@ -217,6 +218,24 @@ shares = [10, 5, 8]
 Nutze zip() im Loop.
 Komplette Mini-Pipeline
 """
+pythontickers = ["AAPL", "MSFT", "TSLA"]
+prices = [300, 420, 180]
+shares = [10, 5, 8]
+
+result = {}
+for ticker, prices, shares in zip(pythontickers,prices,shares):
+    result[ticker] = [ticker][prices]
+    
+
+print(result)
+
+
+# Musste nachschauen wie man .zip() nutzt 
+# Weiß nicht wie ich das bauen soll 
+
+
+
+
 
 """
 Drill 9: Schreibe drei Funktionen und eine Main-Funktion die alles zusammensteckt:
