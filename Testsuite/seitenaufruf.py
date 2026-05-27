@@ -1,14 +1,18 @@
 from selenium import webdriver
 import time
 import requests
+import os 
+from dotenv import load_dotenv
+
 
 
 ### Links ### 
 
 txt_path = "test.txt"
 hauptseiten_links = ["https://example.com/does-not-exist?utm_source=chatgpt.com","https://www.wohnbautrend.de/","https://www.wohnbautrend.de/aussteller-links","https://www.wohnbautrend.de/besucher-links","https://www.wohnbautrend.de/uber-uns","https://www.wohnbautrend.de/aktuelles","https://www.wohnbautrend.de/messeanmeldung","https://www.wohnbautrend.de/messeticket-formular"]
-
-
+unterseiten_links = ["https://www.wohnbautrend.de/messeunterseiten/duisburg","https://www.wohnbautrend.de/messeunterseiten/wohn-bau-trend-kaiserslautern","https://www.wohnbautrend.de/messeunterseiten/moers","https://www.wohnbautrend.de/messeunterseiten/dueren","https://www.wohnbautrend.de/messeunterseiten/huckelhoven","https://www.wohnbautrend.de/messeunterseiten/duesseldorf"]
+unterseiten_aussteller = ["https://www.wohnbautrend.de/ausstellerunterseiten/duisburg-aussteller","https://www.wohnbautrend.de/ausstellerunterseiten/aussteller---wohn-bau-trend-kaiserslautern","https://www.wohnbautrend.de/ausstellerunterseiten/moers-aussteller","https://www.wohnbautrend.de/ausstellerunterseiten/dueren-aussteller","https://www.wohnbautrend.de/ausstellerunterseiten/huckelhoven-aussteller","https://www.wohnbautrend.de/messeunterseiten/duesseldorf"]
+unterseiten_besucher = ["https://www.wohnbautrend.de/besucherunterseiten/duisburg-besucher","https://www.wohnbautrend.de/besucherunterseiten/kaiserslautern-besucher","https://www.wohnbautrend.de/besucherunterseiten/moers-besucher","https://www.wohnbautrend.de/besucherunterseiten/dueren-besucher","https://www.wohnbautrend.de/besucherunterseiten/huckelhoven-besucher","https://www.wohnbautrend.de/besucherunterseiten/duesseldorf-besucher"]
 ### Functions ###
 
 def message_emptyer(path,message):
