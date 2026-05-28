@@ -2,6 +2,7 @@ import requests
 import os
 import json
 import time
+from importer.importer import importer
 
 #Nach test löschen 
 api_key=os.getenv("CLAUDE_KEY")
@@ -11,8 +12,7 @@ with open("systemprompt.txt", "r") as message:
     content = message.read()
     content = str(content)
 
-#Message print 
-#print(content)
+
 
 
 response = requests.post(

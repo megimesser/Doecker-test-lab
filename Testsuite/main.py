@@ -27,3 +27,4 @@ text_writer(txt_path, requester(unterseiten_besucher))
 #SMS - Sender
 sms_searcher(txt_path)
 sms_sender(nachricht="fail",empfaenger=Nummer)
+

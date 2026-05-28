@@ -792,3 +792,7 @@ pythonlogs = ["ERROR", "INFO", "ERROR", "WARNING", "INFO", "INFO", "ERROR"]
 # Nutze: counts[level] = counts.get(level, 0) + 1
 
 """
+
+
+
+# Was macht Continue innerhalb eines for loops im if else Statement ?

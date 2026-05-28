@@ -19,7 +19,7 @@ def sender():
 
     GOOGLE_KEY = os.getenv("GOOGLE_KEY")
     GOOGLE_KEY=str(GOOGLE_KEY)
-    GOOGLE_KEY="aizd mbzw grih lvti"
+    
 
     #app - pw unbedingt nach Fertigstellung löschen 
     ACCOUNT="megimesser96@gmail.com"

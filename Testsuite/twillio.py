@@ -1,7 +1,10 @@
+from dotenv import load_dotenv
+import os
 from twilio.rest import Client
 import re
 
 
+load_dotenv()
 path = "test.txt"
 
 def sms_sender(nachricht, empfaenger):
