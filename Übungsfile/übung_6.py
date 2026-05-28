@@ -16,13 +16,6 @@ Printe jede Zeile EXAKT so wie vorgegeben. Keine Abweichung.
 Schreibe den f-String aus dem Kopf — nicht raten, sondern die Reihenfolge anwenden:
     [fill][align][sign][width][.precision][type]
 
-employees = [
-    ("Müller", 3850.00),
-    ("Schmidt", -120.50),
-    ("Weber", 12400.75),
-    ("Klein", -45.10),
-]
-
 Erwartete Ausgabe (exakt):
 Müller     +3850.00€
 Schmidt     -120.50€
@@ -34,6 +27,15 @@ Hinweis: Name linksbündig 10, Betrag rechtsbündig 10 mit 2 Dezimalen und Vorze
 
 # Dein Code hier:
 
+employees = [
+    ("Müller", 3850.00),
+    ("Schmidt", -120.50),
+    ("Weber", 12400.75),
+    ("Klein", -45.10),
+]
+
+#for i,s in employees:
+    #print(f"{i:10}{s:+}€")
 
 
 # ============================================================
@@ -63,6 +65,42 @@ Hinweis:
 """
 
 # Dein Code hier:
+
+import math
+
+
+tasks = [
+    ("LFCS", 100.0),
+    ("Python", 15.5),
+    ("Docker", 0.0),
+    ("AZ-104", -2.3),   # negativer Fortschritt = Rückschritt
+]
+
+
+for i, l in tasks:
+    string = ""
+    zv = l / 10
+    zv = math.ceil(zv)
+    #print(zv)
+    k = 0
+    while k < zv:
+        string += "#"
+        k +=1
+        
+    while len(string) < 10:
+        string += "-"
+
+    
+    string = "[" + string + "]"
+    print(f"{i:<10} {string} {l:+}%")
+    #print(string)
+
+# Das ist hier meine "super" kreative Lösung den String passend zu formatieren :D 
+#sag nix es funktioniert xD
+
+    
+        
+
 
 
 
