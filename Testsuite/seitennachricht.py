@@ -33,7 +33,36 @@ def aussteller(test_mail, testnummer, message):
     mail.send_keys(test_mail)
     nummer.send_keys(testnummer)
     select = Select(dropdown)
-    select.select_by_visible_text("Option 1")
+    select.select_by_visible_text("Aussteller")
+    nachricht.send_keys(message)
+    confirm.click()
+    submit.click()
+    time.sleep(5)
+
+
+def besucher(test_mail, testnummer, message):
+    driver.get("https://www.wohnbautrend.de")
+
+    print(driver.title)
+
+    driver.implicitly_wait(10)
+
+    name = driver.find_element(By.CSS_SELECTOR, ".w-input")
+    mail = driver.find_element(By.CSS_SELECTOR, ".text-field-2.w-input")
+    nummer = driver.find_element(By.CSS_SELECTOR, ".spacer-form.w-input")
+    nachricht = driver.find_element(By.ID, "Ihre-Nachricht")
+    confirm = driver.find_element(By.ID, "checkbox-2")
+    dropdown = driver.find_element(By.ID, "Sie-sind")
+    submit = driver.find_element(By.CSS_SELECTOR, ".submit-button.w-button")
+
+
+    name.send_keys("Testautomation")
+    mail.send_keys(test_mail)
+    nummer.send_keys(testnummer)
+    select = Select(dropdown)
+    time.sleep(2)
+    select.select_by_visible_text("Besucher")
+    time.sleep(2)
     nachricht.send_keys(message)
     confirm.click()
     submit.click()
@@ -45,8 +74,11 @@ def aussteller(test_mail, testnummer, message):
 
 
 
+
+
 ### Function callingd ### 
 
 if __name__ == "__main__":
     aussteller(test_mail,testnummer,message)
+    besucher(test_mail,testnummer,message)
 
