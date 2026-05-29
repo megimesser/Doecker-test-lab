@@ -99,7 +99,7 @@ for i, l in tasks:
 #sag nix es funktioniert xD
 
     
-        
+
 
 
 
@@ -125,6 +125,35 @@ Teste mit:
 
 # Dein Code hier:
 
+"""
+  safe_get({"a": [1,2,3]}, "a", 1)      → 2
+  safe_get({"a": [1,2,3]}, "b", 0)      → KeyError-Meldung, None
+  safe_get({"a": [1,2,3]}, "a", 99)     → IndexError-Meldung, None
+  safe_get("not a dict", "a", 0)         → allgemeiner Fehler, None
+"""
+
+
+def safe_get(data, key, index):
+    try:
+        return data[key][index]
+    except KeyError:
+        return "KeyError-Meldung", None
+    except IndexError:
+        return "IndexError-Meldung", None
+    except TypeError:
+        return "allgemeiner Fehler", None
+    
+
+x = safe_get({"a": [1,2,3]}, "a", 1) 
+y = safe_get({"a": [1,2,3]}, "b", 0)
+z = safe_get({"a": [1,2,3]}, "a", 99) 
+a = safe_get("not a dict", "a", 0) 
+print(x)
+print(y)
+print(z)
+print(a)
+
+
 
 
 # ============================================================
@@ -149,6 +178,22 @@ Tipp: Neues Dict bauen mit {**original, "neuer_key": wert}
 
 # Dein Code hier:
 
+stocks = [
+    {"ticker": "AAPL", "change": -5.2},
+    {"ticker": "MSFT", "change": 3.8},
+    {"ticker": "TSLA", "change": -12.1},
+]
+
+enriched = [
+    {**stock, "abs_change": 0}
+    for stock in stocks
+]
+
+
+
+print(enriched)
+
+# Das wusste ich nicht auf anhieb :) ,musst eich chat gpt fragen
 
 
 # ============================================================
@@ -168,6 +213,31 @@ Teste mit:
 """
 
 # Dein Code hier:
+
+test = "300.5"
+test = float(test)
+print(test)
+
+
+
+def format_price(value):
+    try: 
+        value = float(value)
+        return f"{value:+,.2f}"
+    except ValueError:
+        return f"({'Error':10})"
+    
+
+
+print(format_price("300.5"))  # → "   +300.50"
+print(format_price("-42"))   #  → "    -42.00"
+print(format_price("N/A"))  #  → "     ERROR"
+print(format_price(0))  
+
+    
+
+
+
 
 
 
@@ -194,9 +264,31 @@ Teste mit:
 
 4. Printe beide und vergleiche ob sie gleich sind (==).
 """
+import json 
 
-# Dein Code hier:
 
+
+portfolio = {
+    "AAPL": {"shares": 10, "buy": 150},
+    "MSFT": {"shares": 5, "buy": 300},
+}
+
+with open("portfolio.json", "w", encoding="utf-8") as f:
+    json.dump(portfolio, f, indent=4)
+
+print("finish")
+
+
+with open("portfolio.json", "r") as f:
+    x = json.load(f)
+
+print(x)
+
+
+if portfolio == x:
+    print("sind gleich")
+else:
+    print("sinn net glei")
 
 
 # ============================================================
@@ -221,6 +313,38 @@ Bonuspunkte: collections.Counter benutzen.
 
 # Dein Code hier:
 
+
+portfolios = {
+    "Max": ["AAPL", "MSFT", "TSLA"],
+    "Laura": ["MSFT", "NVDA", "CRWD"],
+    "Tom": ["AAPL", "CRWD", "AMD"],
+}
+
+
+prelist = []
+
+for i, u  in portfolios.items():
+    print(type(u))
+    for s in u: 
+        prelist.append(s)
+    #print(i[u])
+
+print(prelist)
+
+cleanlist = []
+
+for i in prelist:
+    clean = False
+    for f in prelist:
+        if f == i:
+            cleanlist.append(f)
+        else:
+            continue
+
+        
+            
+print(prelist)
+print(cleanlist)
 
 
 # ============================================================
@@ -293,3 +417,9 @@ Teste:
 """
 
 # Dein Code hier:
+
+
+
+
+
+# Für morgen bitte mal nur 5 Aufgaben - brauche die restliche Zeit um ein paar Tutorials zu binchen :) 
