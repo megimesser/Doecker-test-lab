@@ -1,0 +1,14 @@
+[
+    {
+        "ticker": "test",
+        "buy_price": 200,
+        "shares": 20,
+        "current_value": 6000
+    },
+    {
+        "ticker": "test_2",
+        "buy_price": 300,
+        "shares": 40,
+        "current_value": 12000
+    }
+]

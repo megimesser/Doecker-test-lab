@@ -10,6 +10,76 @@ python# __init__ erstellt eine leere Liste self.stocks
 #   current_prices ist ein Dictionary: {"AAPL": 300, "MSFT": 420}
 #   Tipp: max() mit key-Parameter
 
+"""
+
+
+class Portfolio:
+        def __init__(self):
+                self.stocks = []
+
+        def add(self,stock_name, stock_high,stock_shares):
+                self.name=stock_name
+                self.high=stock_high
+                self.shares=stock_shares
+                #self.stock=Stock
+                try:
+                    self.stocks.append((self.name,self.high,self.shares))
+                except ValueError:
+                       print("falscher Type")
+                #return self.stocks
+        
+        def value(self):
+               total = 0
+               for i in self.stocks:
+                      total += i[1]
+                      #print(f"{i[1]} - test")
+                
+                     # self.total_value = x * y
+               return total
+        
+        def current_price(self,curr_price):
+               self.curr_price = curr_price
+               biggest = 0
+               winner = None
+               print(curr_price)
+               for key,values in curr_price.items():
+                      #print(f"{values}")
+                      if values > biggest: 
+                             biggest = values
+                             winner = key
+               return winner, biggest
+                             
+                      
+       
+                      
+
+               
+                
+        
+
+p = Portfolio()
+p.add("AAPL", 150, 10)
+p.add("MSFT", 300, 5)
+p.add("TSLA", 200, 8)
+print(p.value())
+
+c = {"AAPL": 300, "MSFT": 420, "test": 1000}
+f = p.current_price(c)
+print(f)
+
+
+
+
+
+
+
+
+
+
+"""
+
+
+
 # Teste:
 # p = Portfolio()
 # p.add(Stock("AAPL", 150, 10))
@@ -17,6 +87,14 @@ python# __init__ erstellt eine leere Liste self.stocks
 # p.add(Stock("TSLA", 200, 8))
 # print(p.total_value())
 # print(p.best_performer({"AAPL": 300, "MSFT": 420, "TSLA": 180}))
+
+
+
+
+
+
+
+
 Drill 2 – Filter als einzeilige List Comprehension mit kombinierter Bedingung: Gegeben:
 pythonstocks = [
     {"ticker": "AAPL", "price": 300, "sector": "Tech", "dividend": True},
@@ -27,6 +105,29 @@ pythonstocks = [
 ]
 # Filtere: Tech-Aktien über 250€ die Dividende zahlen. Eine Zeile.
 # Ergebnis: AAPL, MSFT
+
+
+
+"""
+
+pythonstocks = [
+    {"ticker": "AAPL", "price": 300, "sector": "Tech", "dividend": True},
+    {"ticker": "JNJ", "price": 155, "sector": "Healthcare", "dividend": True},
+    {"ticker": "TSLA", "price": 410, "sector": "Auto", "dividend": False},
+    {"ticker": "NVDA", "price": 222, "sector": "Tech", "dividend": False},
+    {"ticker": "MSFT", "price": 420, "sector": "Tech", "dividend": True},
+]
+
+
+x = [x["ticker"] for x in pythonstocks if x["sector"] is "Tech" and x["dividend"] == True and x["price"] > 250]
+print(x)
+
+"""
+
+
+
+
+
 Drill 3 – JSON Read-Modify-Write mit Klasse: Schreibe ein Script das:
 python# 1. Erstelle 3 Stock-Objekte
 # 2. Speichere sie als Liste von Dictionaries in stocks.json
@@ -34,6 +135,64 @@ python# 1. Erstelle 3 Stock-Objekte
 # 3. Lies stocks.json wieder ein
 # 4. Füge jedem Dict ein Feld "current_value" hinzu (shares * 300 als Dummy-Preis)
 # 5. Schreibe die geänderte Version zurück
+
+"""
+import json
+
+
+class reader:
+    def __init__(self):
+              self.stocks = []
+
+    def safer(self,ticker,buy_price,shares):
+           self.ticker =ticker
+           self.buy_price = buy_price
+           self.shares = shares
+           
+           zwischenspeicher = {
+                  "ticker": self.ticker, 
+                  "buy_price": self.buy_price, 
+                  "shares": self.shares
+           }
+
+           self.stocks.append(zwischenspeicher)
+
+           
+
+    def updater(self):
+        with open("test.json", "w") as f: 
+            json.dump(self.stocks,f,indent=4)
+
+    def read(self):
+           with open("test.json", "r") as f: 
+                x = json.load(f)
+           for i in x:
+                  i["current_value"] = i["shares"] * 300
+           with open("test.json", "w") as f: 
+            json.dump(x,f,indent=4)
+                
+            
+
+
+tester = reader()
+tester.safer("test",200,20)
+tester.safer("test_2",300,40)
+tester.updater()
+tester.read()
+
+
+
+"""
+
+
+
+print(x)
+
+
+"""
+
+"""
+
 Drill 4 – f-String Formatierung Drill (10 Mal abtippen):
 python# Tippe diese Zeile 10 Mal aus dem Kopf:
 print(f"{'AAPL':<10}{'300.50':>10}{'€'} {'+12.80':>10}{'%'}")
@@ -41,15 +200,21 @@ print(f"{'AAPL':<10}{'300.50':>10}{'€'} {'+12.80':>10}{'%'}")
 # Dann mit Variablen und echtem Format-Spec:
 t, p, c = "AAPL", 300.5, 12.8
 print(f"{t:<10}{p:>10.2f}€ {c:>+10.2f}%")
+
+
+
+
 Drill 5 – Fehler finden: Finde und fixe alle Fehler in diesem Code (es sind 5):
 pythonclass portfolio:
     def __init__(self):
         stocks = []
 
     def add(self, stock)
+
         self.stocks.append(stock)
 
     def total(self):
+    #total_value ist nich definiert 
         total = 0
         for stock in self.stocks
             total += stock.total_value
@@ -64,3 +229,24 @@ pythonclass portfolio:
 
 
 """
+
+class portfolio:
+    def __init__(self):
+        stocks = []
+
+    def add(self, stock):
+        self.stocks.append(stock)
+
+    def total(self):
+    #total_value ist nich definiert 
+        total = 0
+        for stock in self.stocks:
+            total += stock.total_value
+        return total
+
+    def save(self, filepath):
+        with open(filepath, "w") as f:
+            json.dump(self.stocks, f)
+
+    def __str__(self):
+        return f"Portfolio mit {len(self.stocks)} Stocks"
