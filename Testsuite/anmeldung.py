@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 
-test_mail = "anything@uvvtkqpz.mailosaur.net"
+test_mail = "testautomationheinze@gmail.com"
 number = "01602986822"
 
 vorname = "Testautomation"
