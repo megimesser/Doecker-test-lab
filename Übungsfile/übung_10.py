@@ -162,6 +162,37 @@ pythonstocks = [
 # Finde den Stock mit dem niedrigsten Profit. Eine Zeile mit min().
 # Finde den Stock mit dem längsten Ticker-Namen. Eine Zeile mit max().
 Hinweis zur Syntax: max(liste, key=lambda x: x["feld"]) gibt das Element zurück bei dem x["feld"] am größten ist.
+
+"""
+pythonstocks = [
+    {"ticker": "AAPL", "profit": 1500},
+    {"ticker": "MSFT", "profit": 250},
+    {"ticker": "TSLA", "profit": -160},
+    {"ticker": "NVDAS", "profit": 3200},
+]
+
+
+x = max([i["profit"] for i in pythonstocks])
+f = min([i["profit"] for i in pythonstocks])
+best = max(pythonstocks, key=lambda i: i["ticker"])
+print(best)
+print(x)
+print(f)
+
+
+
+
+
+
+
+
+
+"""
+
+
+
+
+
 Drill 3 – self. vergessen erkennen. Fixe alle Fehler:
 pythonclass Analyzer:
     def __init__(self, name):
