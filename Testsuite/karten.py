@@ -7,14 +7,14 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 
-test_mail = "anything@uvvtkqpz.mailosaur.net"
+test_mail = "testautomationheinze@gmail.com"
 
 vorname = "Testautomation"
 nachname = "Testautomation"
 messe = "Messe Duisburg"
 
 
-messe_loop = ["Messe Duisburg","Messe Kaiserslautern","Messe Moers","Messe Düren","Messe Düsseldorf","Messe Hückelhoven - (bald erhältlich)"]
+messe_loop = ["Messe Duisburg","Messe Kaiserslautern","Messe Moers", "Messe Düren", "Messe Düsseldorf", "Messe Hückelhoven - (bald erhältlich)"]
 
 
 def messe_looper(test_mail, messe_loop):
@@ -25,7 +25,7 @@ def messe_looper(test_mail, messe_loop):
 
 def freikarte(test_mail, messe):
 
-   
+  
 
     driver = webdriver.Chrome(
         service=Service(ChromeDriverManager().install())
@@ -78,5 +78,6 @@ def freikarte(test_mail, messe):
 
 
 if __name__ == "__main__":
-    freikarte(test_mail, messe)
     messe_looper(test_mail,messe_loop)
+    #freikarte(test_mail, messe)
+    

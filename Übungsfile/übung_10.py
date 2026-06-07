@@ -210,6 +210,11 @@ pythonclass Analyzer:
 
     def summary(self):
         return f"{name}: {len(results)} Ergebnisse, Schnitt {self.average():.2f}"
+
+
+
+
+
 Drill 4 – f-String Drill (diesmal wirklich abtippen). Printe exakt diese Tabelle:
 Name           Gehalt      Bonus   Gesamt
 ----------------------------------------------

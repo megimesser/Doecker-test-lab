@@ -181,3 +181,6 @@ print(list_clean)
 print(list_clean_filter)
 with open("test.json", "w") as f:
     json.dump(list_clean_filter, f)
+
+
+# Also ich saß hier gefühlt zwei Stunden dran und bin noch nciht fertig :( )

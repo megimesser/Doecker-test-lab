@@ -5,11 +5,11 @@ from seitenaufruf import hauptseiten_links, unterseiten_links, unterseiten_ausst
 from seitenaufruf import txt_path
 
 # Sender
-from twillio import sms_sender, sms_searcher
+#from twillio import sms_sender, sms_searcher
 
 
 
-Nummer = "+491602986823"
+#Nummer = "+491602986823"
 
 
 
@@ -25,6 +25,6 @@ text_writer(txt_path, requester(unterseiten_besucher))
 
 
 #SMS - Sender
-sms_searcher(txt_path)
-sms_sender(nachricht="fail",empfaenger=Nummer)
+#sms_searcher(txt_path)
+#sms_sender(nachricht="fail",empfaenger=Nummer)
 

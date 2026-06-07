@@ -1,1 +1,5 @@
-.env.env
+.env
+gmail/client.json
+gmail/token.json
+token.json
+client.json

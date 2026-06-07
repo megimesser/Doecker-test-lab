@@ -250,3 +250,7 @@ class portfolio:
 
     def __str__(self):
         return f"Portfolio mit {len(self.stocks)} Stocks"
+
+
+tester_2=portfolio()
+tester_2.add()

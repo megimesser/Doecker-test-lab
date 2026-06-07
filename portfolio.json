@@ -1,0 +1,10 @@
+{
+    "AAPL": {
+        "shares": 10,
+        "buy": 150
+    },
+    "MSFT": {
+        "shares": 5,
+        "buy": 300
+    }
+}
