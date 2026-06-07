@@ -195,23 +195,27 @@ print(f)
 
 Drill 3 – self. vergessen erkennen. Fixe alle Fehler:
 pythonclass Analyzer:
+
+
+"""
+class test:
     def __init__(self, name):
-        name = name
-        results = []
+        self.name = name
+        self.results = []
 
     def add_result(self, value):
-        results.append(value)
+        self.results.append(value)
 
     def average(self):
         total = 0
-        for r in results:
+        for r in self.results:
             total += r
-        return total / len(results)
+        return total / len(self.results)
 
     def summary(self):
-        return f"{name}: {len(results)} Ergebnisse, Schnitt {self.average():.2f}"
+        return f"{self.name}: {len(self.results)} Ergebnisse, Schnitt {self.average():.2f}"
 
-
+"""
 
 
 
@@ -229,6 +233,13 @@ pythondata = [
 # Bonus = 10% vom Gehalt, Gesamt = Gehalt + Bonus
 # Name links 12, Gehalt rechts 12 mit Tausendertrenner und .2f
 # Bonus rechts 10 mit Vorzeichen und .2f, Gesamt rechts 12
+
+Nä diese f string aufgaben bringen nichts weil ich sie innerhalb der praxis nie verwende 
+
+"""
+"""
+
+
 Drill 5 – Alles zusammen ohne nachschauen:
 python# 1. Erstelle Stock-Klasse und Portfolio-Klasse aus dem Kopf
 # 2. Erstelle 4 Stocks, füge sie zum Portfolio hinzu
@@ -238,3 +249,66 @@ python# 1. Erstelle Stock-Klasse und Portfolio-Klasse aus dem Kopf
 # 6. Printe eine formatierte Tabelle der gefilterten Stocks
 
 """
+
+
+stocks = [
+    {"name":"test", "value": 200},
+    {"name":"test_2", "value": 300},
+    {"name":"test_3", "value": 400},
+]
+    
+
+
+
+import json
+stock_2 = {"AAPL": 300, "MSFT": 420, "TSLA": 180, "NVDA": 250}
+
+class stock:
+    def __init__(self):
+        self.stock = []
+    
+    def filter(self, stocks):
+        self.stock.append(stocks)
+        return self.stock
+
+
+class Portfolio:
+    def __init__(self):
+        self.stock = []
+
+    def add_new(self,stocks):
+        self.stock.append()
+
+    def best_perf(self,stocks):
+        best_perf = 0
+        best_perf_n = ""
+        for key,value in stocks.items():
+            if value > best_perf:
+                best_perf = value
+                best_perf_n = key
+        return best_perf_n, best_perf
+    
+    # ich probiere es mal mit einer Dicitonarycomporehension 
+    #def best_perf_2(self,stocks):
+       # max({k2: v1 for k2, v1 in stocks})
+
+    def json_safer(self):
+        with open("test.json", "w") as f:
+            json.dump(self.stock, f, indent=4)
+
+    def printer(self):
+        pass
+        
+
+
+p = Portfolio()
+k = stock()
+x = p.best_perf(stock_2)
+print(x)
+
+#f= p.best_perf_2(stock_2)
+print(f)
+
+ll = k.filter(stocks)
+
+print(ll)
