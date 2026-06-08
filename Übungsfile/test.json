@@ -1,14 +1,20 @@
 [
     {
         "ticker": "test",
-        "buy_price": 200,
         "shares": 20,
-        "current_value": 6000
+        "buy_price": 100,
+        "total": 2000
     },
     {
         "ticker": "test_2",
+        "shares": 20,
+        "buy_price": 200,
+        "total": 4000
+    },
+    {
+        "ticker": "test_3",
+        "shares": 20,
         "buy_price": 300,
-        "shares": 40,
-        "current_value": 12000
+        "total": 6000
     }
 ]

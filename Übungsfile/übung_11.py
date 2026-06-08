@@ -110,7 +110,10 @@ pythonstocks = [
 best = max(pythonstocks, key=lambda s: s["profit"])
 print(best)
 
-
+# Was ich hier nicht verstehe ? 
+# Warum wird hier ein Dictionary zurückgegeben ? 
+# das ist doch nur möglich wenn max() eine Expression ist ? 
+# Expression berechnet etwas und liefert ein Ergebnis zurück 
 
 
 
@@ -132,12 +135,62 @@ pythonmails = [
 ]
 # Filtere per List Comprehension alle Mails die "[TEST]" im Subject haben UND ein PDF enthalten
 # Ergebnis: die zwei [TEST]-Mails mit PDF
+
+
+"""
+import re
+
+
+pythonmails = [
+    {"sender": "test@example.com", "subject": "[TEST] Rechnung", "has_pdf": True},
+    {"sender": "newsletter@spam.com", "subject": "Angebot", "has_pdf": False},
+    {"sender": "test@example.com", "subject": "[TEST] Report", "has_pdf": True},
+    {"sender": "info@firma.de", "subject": "Bestätigung", "has_pdf": False},
+]
+
+pattern = "^[TEST]*"
+
+
+x = [x for x in pythonmails if re.search(pattern, x["subject"]) and x["has_pdf"] is True]
+
+
+
+
+
+print(x)
+
+"""
+
+
 Drill 4 – Dictionary aus zwei Datenquellen mergen (dein Merger-Thema):
 pythonportfolio = {"AAPL": {"shares": 10}, "MSFT": {"shares": 5}, "TSLA": {"shares": 8}}
 prices = {"AAPL": 300, "MSFT": 420, "TSLA": 180}
 # Füge jedem Portfolio-Eintrag den aktuellen Preis hinzu, ohne zweiten Loop
 # Berechne zusätzlich "value" = shares * price
 # Ergebnis: {"AAPL": {"shares": 10, "price": 300, "value": 3000}, ...}
+"""
+pythonportfolio = {"AAPL": {"shares": 10}, "MSFT": {"shares": 5}, "TSLA": {"shares": 8}}
+prices = {"AAPL": 300, "MSFT": 420, "TSLA": 180}
+
+test= pythonportfolio.copy()
+
+for key, value in test.items():
+    for k, v in prices.items():
+        if key == k:
+           pythonportfolio[key].update({
+               "price":v}
+           )
+         
+            
+
+print(pythonportfolio)
+
+merged_dict = {**pythonportfolio, **prices}
+
+# Hier habe ich gegoogelt. Das Programm hat einen Fehler geschmissen, dass sich die Iterationsvariablen erweitern wenn ich keine copy von pythonportfolio nutze 
+
+"""
+
 Drill 5 – Mini-Pipeline mit JSON (ohne nachschauen):
 python# 1. Erstelle eine Liste von 3 Dictionaries (ticker, shares, buy_price)
 # 2. Berechne für jedes den total_value (shares * buy_price), schreib ihn direkt ins Dictionary
@@ -147,3 +200,68 @@ python# 1. Erstelle eine Liste von 3 Dictionaries (ticker, shares, buy_price)
 Timer 7 Minuten pro Drill. Steckst du fest, nachschauen, morgen nochmal. Poste deine Lösungen wenn du durch bist.
 
 """
+
+#
+test_dic = [
+    {"ticker": "test",
+    "shares": 20,
+    "buy_price": 100},
+
+
+    {"ticker": "test_2",
+    "shares": 20,
+    "buy_price": 200},
+
+
+    {"ticker": "test_3",
+    "shares": 20,
+    "buy_price": 300},
+    ]
+
+
+
+import json
+
+class test:
+    def __init__(self, stock):
+        self.stock = stock
+
+    def total(self):
+        self.total = 0
+        for i in self.stock:
+            self.total = i["shares"] * i["buy_price"]
+            i.update({
+               "total": self.total}
+           )
+        return self.stock
+
+            
+
+    def portfolio_test(self):
+        self.filter = [x for x in self.stock if x["total"] > 1000]
+        return self.filter
+    
+    def json_safer(self):
+        with open("test.json", "w") as f:
+            json.dump(self.filter, f, indent=4)
+
+    def json_loader(self):
+        with open("test.json","r") as f:
+            geladen = json.load(f)
+
+        for x in geladen:
+            print(f"{x["ticker"]} : {x["total"]}")
+      
+        
+
+
+
+
+
+p = test(test_dic)
+
+f = p.total()
+print(f)
+print(p.portfolio_test())
+p.json_safer()
+print(p.json_loader())
