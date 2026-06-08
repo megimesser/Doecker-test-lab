@@ -10,7 +10,7 @@ python# Schreibe Stock und Portfolio aus dem Kopf:
 
 """
 
-
+# test
 class Stock:
     def __init__(self, ticker,buy_price,shares):
         self.ticker = ticker
