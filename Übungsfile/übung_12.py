@@ -166,17 +166,47 @@ class Stock:
     def profit(self, current):
         return (current - self.buy_price) * self.shares
     
+    def test(self):
+        print("test")
+    
     def add(self,ticker,price,share):
         self.ticker = ticker
         self.buy_price = price
         self.shares = share
-        dic = {ticker : self.ticker , price: self.buy_price , share : self.shares}
+        # Wenn man das dic = {ticker,price,share} nutzt entsteht ein ungeordnetes Set und keine Dictionary
+        dic = {"ticker" : self.ticker , "price": self.buy_price , "share" : self.shares}
         self.stocklist.append(dic)
 
-    def profit_2(self):
-        self.copy = self.stocklist.copy()
-        for i in self.copy: 
-            print(i)
+    def profit_2(self, prices):
+        self.prices = prices
+
+        for stock in self.stocklist:
+            ticker = stock["ticker"]
+
+            if ticker in self.prices:
+                current = self.prices[ticker]
+
+                profit = (current - self.buy_price) * self.shares
+
+                stock["profit"] = profit   # 👈 hier wird der Value hinzugefügt
+                print(stock)
+                        
+                    
+    
+    def max(self):
+        best = max(self.stocklist, key=lambda s: s["profit"])
+        return best
+
+
+
+                    
+                    
+
+
+           
+            #print(prices)
+            
+            #print(i)
 
 #Ich weiß gerade nicht weiter 
 # ich versuche folgendes 
@@ -198,7 +228,12 @@ s.add("AAPL", 150, 10)
 s.add("MSFT", 300, 5)
 s.add("TSLA", 200, 8)
 
-s.profit_2()
+prices = {"AAPL": 300, "MSFT": 420, "TSLA": 180}
+l = s.profit_2(prices)
+
+
+x = s.max()
+print(x, "bester Ticker")
 """
 stocks = [
     Stock("AAPL", 150, 10),
