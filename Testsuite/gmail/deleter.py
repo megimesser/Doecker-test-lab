@@ -4,7 +4,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 import base64
 import os
-from reader import get_service
+from gmail.reader import get_service
 
 
 
