@@ -62,7 +62,18 @@ prices = {"AAPL": 300, "MSFT": 420, "TSLA": 180}
 highest_ticker = ""
 highest_value = 0
 
+test_list = []
 test_dic = {}
+
+
+def max_loop(test_list):
+     x = [x for x in test_list if x["profit"]]
+     return max(x, key=lambda d: d["profit"])
+
+
+
+
+
 
 for i in pythonstocks:
     #print(prices[i.ticker]) 
@@ -71,7 +82,12 @@ for i in pythonstocks:
 
     price =  prices[i.ticker] #### - ist das hier etwa eun Dictionary lookup ? :D 
     endval = (price - i.buy_price) * i.shares
-    test_dic 
+    # UPDATE funktioniert hier nicht - Es muss bei jeder Iteration ein neues Dictionary erstellt werden 
+    test_dic = {
+        "ticker": i.ticker,
+        "profit": endval
+    }
+    test_list.append(test_dic)
 
 
     if highest_value < endval:
@@ -81,8 +97,10 @@ for i in pythonstocks:
 
 
     #print(i.ticker, endval)
-print(highest_ticker, highest_value)
+#print(highest_ticker, highest_value)
 
+print(test_list)
+print(max_loop(test_list))
     
 
 
