@@ -13,7 +13,7 @@ from config import *
 
 from seitennachricht import aussteller,besucher
 from karten import messe_looper, freikarte
-
+from anmeldung import messe_looper_anmeldung, anmeldung
 # Variablendefinition
 service = get_service()
 
@@ -49,8 +49,13 @@ message_emptyer(txt_path, message="")
 
 
 # Karten versenden 
-messe_looper(TEST_MAIL,MESSE_LOOP)
+# --> messe_looper(TEST_MAIL,MESSE_LOOP)
 
+
+
+
+# Austeller 
+messe_looper_anmeldung(TEST_MAIL,MESSE_LOOP)
 # Fehlersucher 
 
 #SMS - Sender

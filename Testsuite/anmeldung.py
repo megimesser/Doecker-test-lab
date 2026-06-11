@@ -6,25 +6,17 @@ from selenium.webdriver.support.ui import Select, WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-
-test_mail = "testautomationheinze@gmail.com"
-number = "01602986822"
-
-vorname = "Testautomation"
-#messe = "Messe Duisburg"
-message = "Dies ist ein automatisches Testscript"
-
-
-messe_loop = ["Messe Duisburg","Messe Kaiserslautern","Messe Moers","Messe Düren","Messe Düsseldorf","Messe Hückelhoven"]
-
-
-def messe_looper_anmeldung(test_mail, messe_loop):
-    for i in messe_loop:
-        anmeldung(test_mail, i)
+from config import *
 
 
 
-def anmeldung(test_mail, messe):
+def messe_looper_anmeldung(TEST_MAIL, MESSE_LOOP):
+    for i in MESSE_LOOP:
+        anmeldung(TEST_MAIL, i)
+
+
+
+def anmeldung(TEST_MAIL, messe):
 
    
 
@@ -70,12 +62,19 @@ def anmeldung(test_mail, messe):
 
         # Formular ausfüllen
         ansprechpartner_input.send_keys("Testautomation")
+        time.sleep(1)
         unternehmen_input.send_keys("Testautomation")
+        time.sleep(1)
         select = Select(branche_dropdown)
+        time.sleep(1)
         select.select_by_visible_text("Camping")
-        mail_input.send_keys(test_mail)
+        time.sleep(1)
+        mail_input.send_keys(TEST_MAIL)
+        time.sleep(1)
         number_input.send_keys("01602986822")
+        time.sleep(1)
         message_input.send_keys("Dies ist ein automatisches Testscript")
+        time.sleep(1)
 
         select = Select(messe_dropdown)
         select.select_by_visible_text(messe)
@@ -96,4 +95,4 @@ def anmeldung(test_mail, messe):
 
 if __name__ == "__main__":
     #freikarte(test_mail, messe)
-    messe_looper_anmeldung(test_mail,messe_loop)
+    messe_looper_anmeldung(TEST_MAIL,MESSE_LOOP)
