@@ -170,7 +170,35 @@ python# Elternklasse Asset mit __init__(name) und einer Methode describe() die "
 # print(s.describe())   # Stock: AAPL @ 300€
 
 
+"""
 
+class Eltern:
+    def __init__(self,name):
+        self.name = name 
+    
+    def describe(self):
+        return f"Asset: {self.name}"
+        
+
+class Child(Eltern):
+    def __init__(self,name,price):
+        super().__init__(name)
+        self.price = price
+
+    def describe(self):
+        return f"Child: {super()} @ {price}€"
+
+
+h = Eltern("TEST")
+print(h.describe())
+
+
+
+p = Child("Dürum",20)
+print(p.describe())
+
+
+"""
 
 
 Drill 4 – from_dict() als classmethod (Gegenstück zu to_dict):
@@ -191,6 +219,35 @@ pythonclass Stock:
 # s = Stock.from_dict(data)
 # print(s.ticker)   # AAPL
 
+
+
+
+
+"""
+#self → die konkrete Instanz (das Objekt)
+#cls → die Klasse selbst
+
+class Stock_2:
+    def __init__(self, ticker, buy_price, shares):
+        self.ticker = ticker
+        self.buy_price = buy_price
+        self.shares = shares
+
+    @classmethod
+    def from_dict(cls, data):
+
+        
+
+        return cls(data)
+
+
+
+
+
+data = {"ticker": "AAPL", "buy_price": 150, "shares": 10}
+w = Stock_2.from_dict(data)
+print(w)
+"""
 
 
 
