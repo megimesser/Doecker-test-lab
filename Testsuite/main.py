@@ -8,6 +8,12 @@ from gmail.deleter import delete_all
 from gmail.filter import get_service
 from gmail.reader import get_service
 
+from config import *
+
+
+from seitennachricht import aussteller,besucher
+from karten import messe_looper, freikarte
+
 # Variablendefinition
 service = get_service()
 
@@ -19,21 +25,34 @@ service = get_service()
 
 
 #Nummer = "+491602986823"
+
+#Nachrichten im Postfach werden gelöscht
 delete_all(service)
 
-
-
-#Textdatei leeren
+#Textdatei wird geleert 
 message_emptyer(txt_path, message="")
 
 #Request + in Testdatei schreiben
-text_writer(txt_path, requester(hauptseiten_links))   # Reihenfolge: path, message
-text_writer(txt_path, requester(unterseiten_links))
-text_writer(txt_path, requester(unterseiten_aussteller))
-text_writer(txt_path, requester(unterseiten_besucher))
+# --> text_writer(txt_path, requester(hauptseiten_links))   # Reihenfolge: path, message
+# --> text_writer(txt_path, requester(unterseiten_links))
+# --> text_writer(txt_path, requester(unterseiten_aussteller))
+# --> text_writer(txt_path, requester(unterseiten_besucher))
 
+
+
+
+
+# Nachrichten versenden 
+# --> aussteller(TEST_MAIL,TEST_NUMMER,MESSAGE)
+# --> besucher(TEST_MAIL,TEST_NUMMER,MESSAGE)
+
+
+
+# Karten versenden 
+messe_looper(TEST_MAIL,MESSE_LOOP)
+
+# Fehlersucher 
 
 #SMS - Sender
 #sms_searcher(txt_path)
 #sms_sender(nachricht="fail",empfaenger=Nummer)
-

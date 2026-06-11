@@ -6,24 +6,17 @@ from selenium.webdriver.support.ui import Select, WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-
-test_mail = "testautomationheinze@gmail.com"
-
-vorname = "Testautomation"
-nachname = "Testautomation"
-messe = "Messe Duisburg"
-
-
-messe_loop = ["Messe Duisburg","Messe Kaiserslautern","Messe Moers", "Messe Düren", "Messe Düsseldorf", "Messe Hückelhoven - (bald erhältlich)"]
-
-
-def messe_looper(test_mail, messe_loop):
-    for i in messe_loop:
-        freikarte(test_mail, i)
+from config import TEST_MAIL, MESSE_LOOP, VORNAME, NACHNAME
 
 
 
-def freikarte(test_mail, messe):
+def messe_looper(TEST_MAIL, MESSE_LOOP):
+    for i in MESSE_LOOP:
+        freikarte(TEST_MAIL, i)
+
+
+
+def freikarte(TEST_MAIL, messe):
 
   
 
@@ -58,9 +51,9 @@ def freikarte(test_mail, messe):
         )
 
         # Formular ausfüllen
-        vorname_input.send_keys(vorname)
-        nachname_input.send_keys(nachname)
-        mail_input.send_keys(test_mail)
+        vorname_input.send_keys(VORNAME)
+        nachname_input.send_keys(NACHNAME)
+        mail_input.send_keys(TEST_MAIL)
 
         select = Select(messe_dropdown)
         select.select_by_visible_text(messe)
@@ -78,6 +71,6 @@ def freikarte(test_mail, messe):
 
 
 if __name__ == "__main__":
-    messe_looper(test_mail,messe_loop)
+    messe_looper(TEST_MAIL,MESSE_LOOP)
     #freikarte(test_mail, messe)
     

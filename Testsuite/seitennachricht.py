@@ -5,15 +5,14 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import Select
 import time
 
-test_mail = "anything@uvvtkqpz.mailosaur.net"
-testnummer = "01602986882"
-message = "Dies ist eine automatisch generierte Nachricht zur Testautomation"
+from config import TEST_MAIL, TEST_NUMMER, MESSAGE
+
 
 driver = webdriver.Chrome(
     service=Service(ChromeDriverManager().install())
 )
 
-def aussteller(test_mail, testnummer, message):
+def aussteller(TEST_MAIL, TEST_NUMMER, MESSAGE):
     driver.get("https://www.wohnbautrend.de")
 
     print(driver.title)
@@ -30,17 +29,17 @@ def aussteller(test_mail, testnummer, message):
 
 
     name.send_keys("Testautomation")
-    mail.send_keys(test_mail)
-    nummer.send_keys(testnummer)
+    mail.send_keys(TEST_MAIL)
+    nummer.send_keys(TEST_NUMMER)
     select = Select(dropdown)
     select.select_by_visible_text("Aussteller")
-    nachricht.send_keys(message)
+    nachricht.send_keys(MESSAGE)
     confirm.click()
     submit.click()
     time.sleep(5)
 
 
-def besucher(test_mail, testnummer, message):
+def besucher(TEST_MAIL, TEST_NUMMER, MESSAGE):
     driver.get("https://www.wohnbautrend.de")
 
     print(driver.title)
@@ -57,13 +56,13 @@ def besucher(test_mail, testnummer, message):
 
 
     name.send_keys("Testautomation")
-    mail.send_keys(test_mail)
-    nummer.send_keys(testnummer)
+    mail.send_keys(TEST_MAIL)
+    nummer.send_keys(TEST_NUMMER)
     select = Select(dropdown)
     time.sleep(2)
     select.select_by_visible_text("Besucher")
     time.sleep(2)
-    nachricht.send_keys(message)
+    nachricht.send_keys(MESSAGE)
     confirm.click()
     submit.click()
     time.sleep(5)
@@ -79,6 +78,6 @@ def besucher(test_mail, testnummer, message):
 ### Function callingd ### 
 
 if __name__ == "__main__":
-    aussteller(test_mail,testnummer,message)
-    besucher(test_mail,testnummer,message)
+    aussteller(TEST_MAIL,TEST_NUMMER,MESSAGE)
+    besucher(TEST_MAIL,TEST_NUMMER,MESSAGE)
 
