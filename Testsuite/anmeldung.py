@@ -10,8 +10,8 @@ from config import *
 
 
 
-def messe_looper_anmeldung(TEST_MAIL, MESSE_LOOP):
-    for i in MESSE_LOOP:
+def messe_looper_anmeldung(TEST_MAIL, MESSE_LOOP_A):
+    for i in MESSE_LOOP_A:
         anmeldung(TEST_MAIL, i)
 
 
@@ -30,6 +30,7 @@ def anmeldung(TEST_MAIL, messe):
         driver.get("https://www.wohnbautrend.de/messeanmeldung-formular")
 
         print(driver.title)
+        print(messe)
 
         # Felder finden
         ansprechpartner_input = wait.until(
@@ -84,8 +85,10 @@ def anmeldung(TEST_MAIL, messe):
         time.sleep(1)
 
         submit.click()
+        
 
-        time.sleep(5)
+
+        time.sleep(1)
 
         
 
@@ -95,4 +98,4 @@ def anmeldung(TEST_MAIL, messe):
 
 if __name__ == "__main__":
     #freikarte(test_mail, messe)
-    messe_looper_anmeldung(TEST_MAIL,MESSE_LOOP)
+    messe_looper_anmeldung(TEST_MAIL,MESSE_LOOP_A)
