@@ -95,12 +95,12 @@ def has_pdf_attachment(service, message_id):
 # Prüfung Anzahl der Nachrichten - 14 - Stück 
 def zähler(ids):
     if ids != 14:
-        print("fehler vorhanden Anzahl stimmt nicht überein")
+        print("Fehler : vorhandene Anzahl ist nicht korrekt")
     else: 
         print("anzahl korrekt")
 
 # textwriter
-def text_writer(message, path="test.txt"):
+def text_writer(message, path="../test.txt"):
     with open(path, "a") as f:
         f.writelines(message)
 
@@ -109,7 +109,7 @@ def text_writer(message, path="test.txt"):
 
 
 #Prüfung für Nachrichtenversand
-def main():
+def main_reader():
     service = get_service()
     message_string=""
 
@@ -128,6 +128,7 @@ def main():
         ).execute()
 
         #has_pdf_attachment(service, message_id=mid)
+        print(message_string)
 
         
 
@@ -185,7 +186,7 @@ def main():
 
  
     text_writer(message_string)
-            #print("ist da!")
+    print(message_string)
 
         #print(subject)
 
@@ -195,4 +196,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main_reader()
