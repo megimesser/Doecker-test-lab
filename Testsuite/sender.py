@@ -31,7 +31,7 @@ def sms_searcher(path):
     if x == True:
         print("gefunden")
         
-        #sms_sender(nachricht="hi", empfaenger="+491602986823")
+        sms_sender(nachricht="fehlgeschlagen", empfaenger=SMS_EMPFAENGER)
     #return x
         
 

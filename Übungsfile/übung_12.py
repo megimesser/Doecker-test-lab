@@ -177,7 +177,7 @@ class Stock:
         dic = {"ticker" : self.ticker , "price": self.buy_price , "share" : self.shares}
         self.stocklist.append(dic)
 
-    def profit_2(self, prices):
+    def profit_2(self, prices): # -> Die hier habe ich mit ki geschribeben , kam nicht darauf 
         self.prices = prices
 
         for stock in self.stocklist:
@@ -276,3 +276,26 @@ Timer 7 Minuten pro Drill. Poste wenn du durch bist.
 
 
 """
+
+
+stocks = [
+    {"name": "test_1", "buy": 20, "share": 5},
+    {"name": "test_2", "buy": 50, "share": 5},
+    {"name": "test_3", "buy": 1000, "share": 5},
+]
+
+
+class Stock:
+    def __init__(self,ticker,buy_price,shares):
+        self.ticker = ticker
+        self.buy_price = buy_price
+        self.shares = shares 
+        self.list = []
+
+    def total_value(self):
+        l = [x for x in ] 
+
+    def add(self):
+        
+
+# Ich bin gerade geistig ausgestiegen - mache für heute schluss 

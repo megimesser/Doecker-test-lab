@@ -236,6 +236,7 @@ class Stock_2:
     @classmethod
     def from_dict(cls, data):
 
+
         
 
         return cls(data)
@@ -247,6 +248,10 @@ class Stock_2:
 data = {"ticker": "AAPL", "buy_price": 150, "shares": 10}
 w = Stock_2.from_dict(data)
 print(w)
+
+
+
+# verstehe ich nicht wie das gehen soll 
 """
 
 
@@ -263,3 +268,4 @@ python# 1. Stock-Klasse mit __init__, total_value(), to_dict(), from_dict() (cla
 Drill 5 schließt den Kreis: Objekte → Dictionaries → JSON → Dictionaries → Objekte. Das ist genau das Pattern das du beim Finance-Analyzer gebraucht hättest. Wenn du das kannst, hast du das Serialisierungs-Problem für immer gelöst.
 Timer 7 Minuten pro Drill. Bei Vererbung (Drill 3) ruhig kurz in die OOP-Übersicht schauen, das ist neu.
 """
+
