@@ -1,4 +1,3 @@
-❌ Status 404 — fehlgeschlagen
 ✅ Status 200 — Seite erreichbar
 Titel: Wohn.Bau.Trend.
 ✅ Status 200 — Seite erreichbar
@@ -49,11 +48,9 @@ Titel: Düren Besucher
 Titel: Hückelhoven Besucher
 ✅ Status 200 — Seite erreichbar
 Titel: Meerbusch Besucher
-Besuchernachricht wird versendet ✅ 
-Ausstellernachricht wird versendet ✅ 
 Anmeldungsunterlagen Hückelhoven in Ordnung ✅  
-Anmeldungsunterlagen Düsseldorf in Ordnung ✅  
 Anmeldungsunterlagen Düren in Ordnung ✅  
+Anmeldungsunterlagen Düsseldorf in Ordnung ✅  
 Anmeldungsunterlagen Moers in Ordnung ✅  
 Anmeldungsunterlagen Kaiserslautern in Ordnung ✅  
 Anmeldungsunterlagen Duisburg in Ordnung ✅  
@@ -65,57 +62,3 @@ Messeticket Kaiserlautern in Ordnung ✅
 Messeticket Duisburg in Ordnung ✅  
 Besuchernachricht wird versendet ✅ 
 Ausstellernachricht wird versendet ✅ 
-Anmeldungsunterlagen Hückelhoven in Ordnung ✅  
-Anmeldungsunterlagen Düsseldorf in Ordnung ✅  
-Anmeldungsunterlagen Düren in Ordnung ✅  
-Anmeldungsunterlagen Moers in Ordnung ✅  
-Anmeldungsunterlagen Kaiserslautern in Ordnung ✅  
-Anmeldungsunterlagen Duisburg in Ordnung ✅  
-Messeticket Hückelhoven in Ordnung ✅  
-Messeticket Düsseldorf in Ordnung ✅  
-Messeticket Düren in Ordnung ✅  
-Messeticket Moers in Ordnung ✅  
-Messeticket Kaiserlautern in Ordnung ✅  
-Messeticket Duisburg in Ordnung ✅  
-Besuchernachricht wird versendet ✅ 
-Ausstellernachricht wird versendet ✅ 
-Anmeldungsunterlagen Hückelhoven in Ordnung ✅  
-Anmeldungsunterlagen Düsseldorf in Ordnung ✅  
-Anmeldungsunterlagen Düren in Ordnung ✅  
-Anmeldungsunterlagen Moers in Ordnung ✅  
-Anmeldungsunterlagen Kaiserslautern in Ordnung ✅  
-Anmeldungsunterlagen Duisburg in Ordnung ✅  
-Messeticket Hückelhoven in Ordnung ✅  
-Messeticket Düsseldorf in Ordnung ✅  
-Messeticket Düren in Ordnung ✅  
-Messeticket Moers in Ordnung ✅  
-Messeticket Kaiserlautern in Ordnung ✅  
-Messeticket Duisburg in Ordnung ✅  
-Besuchernachricht wird versendet ✅ 
-Ausstellernachricht wird versendet ✅ 
-Anmeldungsunterlagen Hückelhoven in Ordnung ✅  
-Anmeldungsunterlagen Düsseldorf in Ordnung ✅  
-Anmeldungsunterlagen Düren in Ordnung ✅  
-Anmeldungsunterlagen Moers in Ordnung ✅  
-Anmeldungsunterlagen Kaiserslautern in Ordnung ✅  
-Anmeldungsunterlagen Duisburg in Ordnung ✅  
-Messeticket Hückelhoven in Ordnung ✅  
-Messeticket Düsseldorf in Ordnung ✅  
-Messeticket Düren in Ordnung ✅  
-Messeticket Moers in Ordnung ✅  
-Messeticket Kaiserlautern in Ordnung ✅  
-Messeticket Duisburg in Ordnung ✅  
-Besuchernachricht wird versendet ✅ 
-Ausstellernachricht wird versendet ✅ 
-Anmeldungsunterlagen Hückelhoven in Ordnung ✅  
-Anmeldungsunterlagen Düsseldorf in Ordnung ✅  
-Anmeldungsunterlagen Düren in Ordnung ✅  
-Anmeldungsunterlagen Moers in Ordnung ✅  
-Anmeldungsunterlagen Kaiserslautern in Ordnung ✅  
-Anmeldungsunterlagen Duisburg in Ordnung ✅  
-Messeticket Hückelhoven in Ordnung ✅  
-Messeticket Düsseldorf in Ordnung ✅  
-Messeticket Düren in Ordnung ✅  
-Messeticket Moers in Ordnung ✅  
-Messeticket Kaiserlautern in Ordnung ✅  
-Messeticket Duisburg in Ordnung ✅  

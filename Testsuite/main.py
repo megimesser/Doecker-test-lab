@@ -1,18 +1,17 @@
+import time
+
 # --- Konfiguration ---
 from Testsuite.config import *  # nur das aufzählen, was du hier wirklich nutzt
 
 # --- Seitenaufrufe ---
 from Testsuite.seitenaufruf import (
     requester,
-    hauptseiten_links,
-    unterseiten_links,
-    unterseiten_aussteller,
-    unterseiten_besucher,
-    txt_path,
+    text_writer,
+    message_emptyer
 )
 
 # --- Gmail ---
-from Testsuite.gmail.deleter import delete_all
+from Testsuite.gmail.deleter import delete_all, get_service
 from Testsuite.gmail.filter import get_service, main_reader
 
 # --- Messe-Workflows ---
@@ -35,13 +34,13 @@ service = get_service()
 delete_all(service)
 
 #Textdatei wird geleert 
-message_emptyer(txt_path, message="")
+message_emptyer(TXT_PATH, message="")
 
 #Request + in Testdatei schreiben
-text_writer(txt_path, requester(hauptseiten_links))   # Reihenfolge: path, message
-text_writer(txt_path, requester(unterseiten_links))
-text_writer(txt_path, requester(unterseiten_aussteller))
-text_writer(txt_path, requester(unterseiten_besucher))
+text_writer(TXT_PATH, requester(HAUPTSEITEN_LINKS))   # Reihenfolge: path, message
+text_writer(TXT_PATH, requester(UNTERSEITEN_LINKS))
+text_writer(TXT_PATH, requester(UNTERSEITEN_AUSSTELLER))
+text_writer(TXT_PATH, requester(UNTERSEITEN_BESUCHER))
 
 
 
@@ -73,4 +72,4 @@ time.sleep(60)
 
 
 main_reader()
-sms_searcher(txt_path)
+sms_searcher(TXT_PATH)

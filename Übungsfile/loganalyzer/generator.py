@@ -7,7 +7,7 @@ from config import *
 
 MESSAGES = ["INFO", "WARNING", "ERROR", "CRITICAL"]
 NAMES = ["Laura", "Max", "Peter", "Günther", "Paul"]
-FEHLER = ["Waschbecken nicht sauber", "Datenbank nicht erreichbar", "Login erfolgreich", "Laura hat einen fahren lassen"]
+FEHLER = ["Waschbecken nicht sauber", "Datenbank nicht erreichbar", "Login erfolgreich", "Laura riecht heute eigenartig"]
 PFAD = LOG_DATA
 
 

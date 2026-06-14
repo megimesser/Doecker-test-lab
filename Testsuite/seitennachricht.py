@@ -5,7 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import Select
 import time
 
-from config import TEST_MAIL, TEST_NUMMER, MESSAGE
+from Testsuite.config import TEST_MAIL, TEST_NUMMER, MESSAGE
 
 
 driver = webdriver.Chrome(

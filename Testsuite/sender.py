@@ -2,16 +2,14 @@ from dotenv import load_dotenv
 import os
 from twilio.rest import Client
 import re
-from config import * 
-
-
+from Testsuite.config import TXT_PATH,AUTH_TOKEN,ACCOUNT_SID,TWILIO_NUMBER,SMS_EMPFAENGER
 load_dotenv()
-path = "test.txt"
+
 
 def sms_sender(nachricht, empfaenger):
     #Head twillio
 
-    client = Client(ACCOUNT_SID, AUTH_TOKEN)
+    client = Client(ACCOUNT_SID, AUTH_TOKEN) 
     message = client.messages.create(
         body=nachricht,
         from_=TWILIO_NUMBER,
@@ -36,8 +34,8 @@ def sms_searcher(path):
         
 
 if __name__ == '__main__':
-    sms_searcher(path)
-    print(sms_searcher(path))
+    sms_searcher(TXT_PATH)
+    print(sms_searcher(TXT_PATH))
 
 
 
