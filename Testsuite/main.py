@@ -1,5 +1,5 @@
 # --- Konfiguration ---
-from Testsuite.config import SMS_EMPFAENGER, TXT_PATH  # nur das aufzählen, was du hier wirklich nutzt
+from Testsuite.config import *  # nur das aufzählen, was du hier wirklich nutzt
 
 # --- Seitenaufrufe ---
 from Testsuite.seitenaufruf import (
