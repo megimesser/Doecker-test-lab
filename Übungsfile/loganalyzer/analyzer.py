@@ -1,8 +1,7 @@
 import os 
 from config import *
 import re
-
-f = LOG_DATA
+import json
 
 
 
@@ -11,7 +10,7 @@ with open(LOG_DATA, "r") as f:
 
 log = log.split("\n")
 
-json = {
+jsoni = {
     "gesamt": 0,
     "nach_level": {"INFO": 0, "ERROR": 0, "WARNING": 0, "CRITICAL": 0},
     "nach_user": {"Max": 0, "Peter": 0, "Laura": 0, "Günther": 0},
@@ -19,11 +18,9 @@ json = {
 }
 
 
-
-
 for lines in log:
         
-        json["gesamt"] += 1
+        jsoni["gesamt"] += 1
         
         #Definition Message
         info = re.findall("INFO", lines)
@@ -32,13 +29,13 @@ for lines in log:
         critical = re.findall("CRITICAL", lines)
 
         if bool(info) == True: 
-              json["nach_level"]["INFO"] += 1
+              jsoni["nach_level"]["INFO"] += 1
         elif bool(error) == True:
-              json["nach_level"]["ERROR"] += 1
+              jsoni["nach_level"]["ERROR"] += 1
         elif bool(warning) == True:
-              json["nach_level"]["WARNING"] += 1
+              jsoni["nach_level"]["WARNING"] += 1
         elif bool(critical) == True:
-              json["nach_level"]["CRITICAL"] += 1
+              jsoni["nach_level"]["CRITICAL"] += 1
         
               
         #Definition Namen
@@ -49,28 +46,41 @@ for lines in log:
 
 
         if bool(Max) == True: 
-              json["nach_user"]["Max"] += 1
+              jsoni["nach_user"]["Max"] += 1
         elif bool(Laura) == True:
-              json["nach_user"]["Laura"] += 1
+              jsoni["nach_user"]["Laura"] += 1
         elif bool(Peter) == True:
-              json["nach_user"]["Peter"] += 1
+              jsoni["nach_user"]["Peter"] += 1
         elif bool(Günther) == True:
-              json["nach_user"]["Günther"] += 1
+              jsoni["nach_user"]["Günther"] += 1
+
+        Critical = re.findall("CRITICAL", lines)
+
+        stringer = ""
+
+        if jsoni["erster_critical"] == None:
+            if Critical: 
+                splitter = lines.split()
+                #print(splitter[0], splitter[1])
+                stringer += splitter[0]
+                stringer += " "
+                stringer += splitter[1]
+                jsoni["erster_critical"] = stringer
+                #print(stringer)
+
         
               
 
 
 
-
-        print(bool(info))
-
-
-
-    #print(lines)
+with open(JSONI, "w", encoding="utf-8") as f: 
+      json.dump(jsoni,f,indent=4)
+      
+        
 
 
 
-print(json)
+#print(json)
 
 
 
