@@ -37,7 +37,8 @@ parser.add_argument(
 
 parser.add_argument(
       "--output",
-      help="Outputpfad des Files"
+      help="Outputpfad des Files",
+      default=JSONI
       
 )
 
@@ -72,29 +73,18 @@ for lines in log:
 
         if bool(info) == True and args.level == "INFO": 
               jsoni["nach_level"]["INFO"] += 1
-              jsoni["nach_level"]["ERROR"] = None
-              jsoni["nach_level"]["WARNING"] = None
-              jsoni["nach_level"]["CRITICAL"] = None
         elif bool(error) == True and args.level == "ERROR":
               jsoni["nach_level"]["ERROR"] += 1
-              jsoni["nach_level"]["WARNING"] = None
-              jsoni["nach_level"]["CRITICAL"] = None
-              jsoni["nach_level"]["INFO"] = None
         elif bool(warning) == True and args.level == "WARNING":
               jsoni["nach_level"]["WARNING"] += 1
-              jsoni["nach_level"]["CRITICAL"] = None
-              jsoni["nach_level"]["INFO"] = None
-              jsoni["nach_level"]["ERROR"] = None
         elif bool(critical) == True and args.level == "CRITICAL":
               jsoni["nach_level"]["CRITICAL"] += 1
-              jsoni["nach_level"]["INFO"] = None
-              jsoni["nach_level"]["ERROR"] = None
-              jsoni["nach_level"]["WARNING"] = None
-        else: 
-              jsoni["nach_level"]["CRITICAL"] += 1
-              jsoni["nach_level"]["WARNING"] += 1
-              jsoni["nach_level"]["ERROR"] += 1
-              jsoni["nach_level"]["INFO"] += 1
+            #any(bool([info, warning, critical, error]) == True) and \  
+        elif args.level not in ("INFO", "ERROR", "WARNING", "CRITICAL"):
+
+            for level in ("CRITICAL", "WARNING", "ERROR", "INFO"):
+                  print("work")
+                  jsoni["nach_level"][level] += 1
         
               
         #Definition Namen
@@ -135,7 +125,7 @@ if args.level:
 
 
 
-with open(JSONI, "w", encoding="utf-8") as f: 
+with open(args.output, "w", encoding="utf-8") as f: 
       json.dump(jsoni,f,indent=4)
       
         
