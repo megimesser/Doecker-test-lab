@@ -31,7 +31,7 @@ def verzeichnis():
     print("Filter 'mo' geklickt")
     time.sleep(2)
     print(f"{zaehle_items()} Items nach Filter 'mo'")
-
+#test
 
 if __name__ == "__main__":
     verzeichnis()
