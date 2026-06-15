@@ -1,16 +1,16 @@
 {
     "gesamt": 200,
     "nach_level": {
-        "INFO": 57,
-        "ERROR": 54,
-        "WARNING": 50,
-        "CRITICAL": 39
+        "INFO": 200,
+        "ERROR": 200,
+        "WARNING": 200,
+        "CRITICAL": 200
     },
     "nach_user": {
         "Max": 40,
-        "Peter": 27,
-        "Laura": 74,
-        "G\u00fcnther": 32
+        "Peter": 0,
+        "Laura": 0,
+        "G\u00fcnther": 42
     },
     "erster_critical": "2026-06-14 11:41:23"
 }
