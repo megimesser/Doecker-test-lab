@@ -6,3 +6,7 @@ OUTPUT = os.path.join(BASE_DIR, 'health_report.json')
 
 
 
+#generator.py 
+
+NAMES = ["auth-service", "payment-api", "user-db", "test-db", "cloud-service", "website", "credential-db", "admin-db", "intranet", "test-api"]
+
