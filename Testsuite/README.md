@@ -1,30 +1,11 @@
-<h1>Automatisierte Test- und Monitoring-Suite für Gmail-API-Workflows und Webflow-CMS-Scraping.</h1>
+# Testsuite
 
+> Automatisierte Test- und Monitoring-Suite für einen Webflow-Kundenauftritt (wohnbautrend.de) und die zugehörigen Gmail-API-Workflows.
 
-Testsuite soll folgende Dinge beinhalten: 
+Geschrieben in Python. Kombiniert Selenium-basiertes Prüfen der Website mit Gmail-API-Automation über OAuth2.
 
+---
 
-Request
-- Anfragen an alle URL´s auf der Webseite 
+## Motivation
 
-Seleniunm 
-
-Anmeldeformulare:   
-    - Anforderung eines Anmeldeformulars + anschließende Prüfung ob das Formular angekommen ist 
-    - (eventuell für alle Formulare durchführen)
-
-Freikarten
-    - Freikarten für alle Messen anfordern + Prüfung, dass diese vorhanden sind 
-    - Prüfung aller Freikarten, ob diese korrekt eingeganen sind ( Regex )
-
-versenden von Nachrichten
-    - Nachrichten von Aussteller + Besucher 
-    - Prüfung, dass diese entsprechend angekommen sind
-
-- Report senden 
- - Welche Seiten sind alle vorhanden ? 
- - Wenn nicht vorhanden, dann SMS an meine Nummer 
-
-
- - Tests sollen 1x täglich stattfinden 
- 
+Nach dem Launch der Kundenseite **wohnbautrend.de** (erstellt mit Webflow) brauchte ich eine automatisierte Möglichkeit, die Seite regelmäßig auf Erreichbarkeit, korrekte CMS-Inhalte und funktionierende Filter zu prüfen — statt manuell durchzuklicken. Diese Suite übernimmt diese Checks und meldet Abweichungen, sodass Probleme erkannt werden, bevor der Kunde sie bemerkt.
