@@ -5,9 +5,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 import time
+from Testsuite.config import CMS_EINTRÄGE, SMS_EMPFAENGER, TXT_PATH
+from Testsuite.sender import sms_sender
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 driver.implicitly_wait(10)   # einmal global, reicht
+
 
 
 
@@ -43,7 +46,23 @@ def verzeichnis():
 
     return Datenbankeinträge
 
+def counter_cms(anzahl):
+    if anzahl != CMS_EINTRÄGE:
+        meldung = "Fehler : vorhandene Anzahl ist nicht korrekt - CMS"
+        print(meldung)
+        sms_sender(nachricht=meldung, empfaenger=SMS_EMPFAENGER)
+        text_writer(meldung)
+        driver.quit()
+    else:
+        print("anzahl korrekt")
+        meldung_2 = f"\n\n⭐CMS⭐ \n✅ {anzahl} / {CMS_EINTRÄGE} Einträge sind innerhalb des Ausstellerverzeichnisses vorhanden"
+        text_writer(meldung_2)
+        driver.quit()
 
+
+def text_writer(message, path=TXT_PATH):
+    with open(path, "a") as f:
+        f.write(message)
 
 
 #test
@@ -53,6 +72,7 @@ def verzeichnis():
 #driver.quit()
 
 if __name__ == "__main__":
-    print(verzeichnis())
-    input("Enter drücken zum Schließen...")
-    driver.quit()
+    #print(verzeichnis())
+    #input("Enter drücken zum Schließen...")
+    #driver.quit()
+    counter_cms(verzeichnis())

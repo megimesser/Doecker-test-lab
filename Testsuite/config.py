@@ -37,15 +37,19 @@ SMS_EMPFAENGER = os.environ.get("SMS_EMPFAENGER", "")
 SCOPES = ['https://www.googleapis.com/auth/gmail.modify']
 TOKEN_PATH = os.path.join(BASE_DIR, 'token.json')
 CLIENT_PATH = os.path.join(BASE_DIR, 'client.json')
-TXT_PATH = os.path.join(BASE_DIR, 'test.txt')
+TXT_PATH = os.path.join(BASE_DIR, 'data/Bericht.txt')
+#os.path.join(BASE_DIR, 'test.txt')
 
-
+#filter.py
 ERWARTETE_ANZAHL = 14
 
 
 #sender.py
-
 AUTH_TOKEN = os.environ.get("AUTH_TOKEN", "")
 ACCOUNT_SID = os.environ.get("ACCOUNT_SID", "")
 TWILIO_NUMBER = os.environ.get("TWILIO_NUMBER", "")
 SMS_EMPFAENGER = os.environ.get("SMS_EMPFAENGER", "")
+
+
+#verzeichnis.py 
+CMS_EINTRÄGE = 149

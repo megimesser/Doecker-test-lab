@@ -3,16 +3,10 @@ import time
 import requests
 import os 
 from dotenv import load_dotenv
+from Testsuite.config import HAUPTSEITEN_LINKS, UNTERSEITEN_LINKS,UNTERSEITEN_AUSSTELLER,UNTERSEITEN_BESUCHER,TXT_PATH
 
 
 
-### Links ### 
-
-txt_path = "test.txt"
-hauptseiten_links = ["https://example.com/does-not-exist?utm_source=chatgpt.com","https://www.wohnbautrend.de/","https://www.wohnbautrend.de/aussteller-links","https://www.wohnbautrend.de/besucher-links","https://www.wohnbautrend.de/uber-uns","https://www.wohnbautrend.de/aktuelles","https://www.wohnbautrend.de/messeanmeldung","https://www.wohnbautrend.de/messeticket-formular"]
-unterseiten_links = ["https://www.wohnbautrend.de/messeunterseiten/duisburg","https://www.wohnbautrend.de/messeunterseiten/wohn-bau-trend-kaiserslautern","https://www.wohnbautrend.de/messeunterseiten/moers","https://www.wohnbautrend.de/messeunterseiten/dueren","https://www.wohnbautrend.de/messeunterseiten/huckelhoven","https://www.wohnbautrend.de/messeunterseiten/duesseldorf"]
-unterseiten_aussteller = ["https://www.wohnbautrend.de/ausstellerunterseiten/duisburg-aussteller","https://www.wohnbautrend.de/ausstellerunterseiten/aussteller---wohn-bau-trend-kaiserslautern","https://www.wohnbautrend.de/ausstellerunterseiten/moers-aussteller","https://www.wohnbautrend.de/ausstellerunterseiten/dueren-aussteller","https://www.wohnbautrend.de/ausstellerunterseiten/huckelhoven-aussteller","https://www.wohnbautrend.de/messeunterseiten/duesseldorf"]
-unterseiten_besucher = ["https://www.wohnbautrend.de/besucherunterseiten/duisburg-besucher","https://www.wohnbautrend.de/besucherunterseiten/kaiserslautern-besucher","https://www.wohnbautrend.de/besucherunterseiten/moers-besucher","https://www.wohnbautrend.de/besucherunterseiten/dueren-besucher","https://www.wohnbautrend.de/besucherunterseiten/huckelhoven-besucher","https://www.wohnbautrend.de/besucherunterseiten/duesseldorf-besucher"]
 ### Functions ###
 
 def message_emptyer(path,message):
@@ -26,10 +20,23 @@ def text_writer(path, message):
 
 
 def requester(links):
+    
+
     message_string = ""                         # vor der Schleife
     seiten_erreichbar = 0
 
     for i in links:
+
+        # Für Identifikatin im Bericht 
+        if i == "https://www.wohnbautrend.de/":
+            message_string += "\n\n ⭐HAUPTSEITEN⭐\n"
+        elif i == "https://www.wohnbautrend.de/messeunterseiten/duisburg":
+            message_string += "\n\n ⭐ MESSEUNTERSEITEN⭐\n"
+        elif i == "https://www.wohnbautrend.de/ausstellerunterseiten/duisburg-aussteller":
+            message_string += "\n\n ⭐AUSSTELLERSEITEN⭐\n"
+        elif i == "https://www.wohnbautrend.de/besucherunterseiten/duisburg-besucher":
+            message_string +=  "\n\n⭐ BESUCHERUNTERSEITEN⭐\n"
+
         response = requests.get(i)
         if response.status_code == 200:
             print(f"✅ Status {response.status_code} — Seite erreichbar")
@@ -55,6 +62,6 @@ def requester(links):
 ### Function callingd ### 
 
 if __name__ == "__main__":
-    message_emptyer(txt_path, message="")
-    ergebnis = requester(hauptseiten_links)
-    text_writer(txt_path, ergebnis)
+    message_emptyer(TXT_PATH, message="")
+    ergebnis = requester(HAUPTSEITEN_LINKS)
+    text_writer(TXT_PATH, ergebnis)

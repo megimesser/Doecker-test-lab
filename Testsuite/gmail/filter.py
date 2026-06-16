@@ -61,7 +61,7 @@ def has_relevant_attachment(msg):
 # Prüfung Anzahl der Nachrichten
 def counter(anzahl):
     if anzahl != ERWARTETE_ANZAHL:
-        meldung = "Fehler : vorhandene Anzahl ist nicht korrekt"
+        meldung = "Fehler : vorhandene Anzahl ist nicht korrekt - EMAIL"
         print(meldung)
         sms_sender(nachricht=meldung, empfaenger=SMS_EMPFAENGER)
     else:
@@ -74,6 +74,8 @@ def text_writer(message, path=TXT_PATH):
 
 
 def main_reader():
+    helper_3 = True
+    helper_2 = True
     service = get_service()
     message_string = ""
 
@@ -92,6 +94,9 @@ def main_reader():
 
         # Prüfung Anmeldedaten + Karten (gleiche Logik, ein Block)
         if re.search(r"^(Ihre|Dein)", subject) and has_relevant_attachment(msg):
+            if helper_2 == True:
+                message_string += f"\n\n⭐ Tickets / Anmeldungen ⭐\n"
+                helper_2 = False 
             f = subject.split()
             text = f"{f[1]} {f[-1]} in Ordnung ✅ "
             print(text)
@@ -99,8 +104,12 @@ def main_reader():
 
         # Prüfung Nachrichten
         if re.search(r"Webseite :", subject):
+            if helper_3 == True:
+                message_string += f"\n\n⭐ Aussteller / Besuchernachricht ⭐\n"
+                helper_3 = False
             text = f"{subject.split()[-1]} wird versendet ✅"
             print(text)
+            helper_3 = False
             message_string += f"{text} \n"
 
     text_writer(message_string)

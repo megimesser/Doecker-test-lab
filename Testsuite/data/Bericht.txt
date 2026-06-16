@@ -1,0 +1,85 @@
+
+
+ ⭐HAUPTSEITEN⭐
+✅ Status 200 — Seite erreichbar
+Titel: Wohn.Bau.Trend.
+✅ Status 200 — Seite erreichbar
+Titel: Aussteller-Links
+✅ Status 200 — Seite erreichbar
+Titel: Besucher-Links
+✅ Status 200 — Seite erreichbar
+Titel: Über uns
+✅ Status 200 — Seite erreichbar
+Titel: Aktuelles
+✅ Status 200 — Seite erreichbar
+Titel: Messeanmeldung
+✅ Status 200 — Seite erreichbar
+Titel: Freikarte Formular
+
+
+ ⭐ MESSEUNTERSEITEN⭐
+✅ Status 200 — Seite erreichbar
+Titel: Wohn.Bau.Trend Duisburg
+✅ Status 200 — Seite erreichbar
+Titel: Wohn.Bau.Trend Kaiserslautern
+✅ Status 200 — Seite erreichbar
+Titel: Wohn.Bau.Trend Moers
+✅ Status 200 — Seite erreichbar
+Titel: Düren
+✅ Status 200 — Seite erreichbar
+Titel: Wohn.Bau.Trend Hückelhoven
+✅ Status 200 — Seite erreichbar
+Titel: Wohn.Bau.Trend Meerbusch
+
+
+ ⭐AUSSTELLERSEITEN⭐
+✅ Status 200 — Seite erreichbar
+Titel: Duisburg Aussteller
+✅ Status 200 — Seite erreichbar
+Titel: Kaiserslautern Aussteller
+✅ Status 200 — Seite erreichbar
+Titel: Moers Aussteller
+✅ Status 200 — Seite erreichbar
+Titel: Düren Aussteller
+✅ Status 200 — Seite erreichbar
+Titel: Hückelhoven Aussteller
+✅ Status 200 — Seite erreichbar
+Titel: Wohn.Bau.Trend Meerbusch
+
+
+⭐ BESUCHERUNTERSEITEN⭐
+✅ Status 200 — Seite erreichbar
+Titel: Duisburg Besucher
+✅ Status 200 — Seite erreichbar
+Titel: Kaiserslautern Besucher
+✅ Status 200 — Seite erreichbar
+Titel: Moers Besucher
+✅ Status 200 — Seite erreichbar
+Titel: Düren Besucher
+✅ Status 200 — Seite erreichbar
+Titel: Hückelhoven Besucher
+✅ Status 200 — Seite erreichbar
+Titel: Meerbusch Besucher
+
+
+ CMS 
+✅ 149 / 149 Einträge sind innerhalb der Datenbank vorhanden
+
+⭐ Tickets / Anmeldungen ⭐
+Anmeldungsunterlagen Hückelhoven in Ordnung ✅  
+Anmeldungsunterlagen Düsseldorf in Ordnung ✅  
+Anmeldungsunterlagen Düren in Ordnung ✅  
+Anmeldungsunterlagen Moers in Ordnung ✅  
+Anmeldungsunterlagen Kaiserslautern in Ordnung ✅  
+Anmeldungsunterlagen Duisburg in Ordnung ✅  
+Messeticket Düsseldorf in Ordnung ✅  
+Messeticket Hückelhoven in Ordnung ✅  
+Messeticket Düren in Ordnung ✅  
+Messeticket Moers in Ordnung ✅  
+Messeticket Kaiserlautern in Ordnung ✅  
+Messeticket Duisburg in Ordnung ✅  
+
+
+⭐ Aussteller / Besuchernachricht ⭐
+Besuchernachricht wird versendet ✅ 
+Ausstellernachricht wird versendet ✅ 
