@@ -20,7 +20,14 @@ Methode zu_dict() die ein Dictionary mit allen vier Werten plus einem Key gesund
 
 
 
-Dann erstelle mit random eine Liste von 10 Service-Objekten. Nutze feste Namen wie "auth-service", "payment-api", "user-db" etc., aber zufällige response_time (zwischen 50 und 800) und status_code (wähle zufällig aus 200, 200, 200, 404, 500 – damit 200 häufiger vorkommt). Wandle die Objekte per List Comprehension in Dictionaries um und speichere sie als JSON in services.json.
+Dann erstelle mit random eine Liste von 10 Service-Objekten. Nutze feste Namen wie "auth-service", "payment-api", "user-db" etc., aber zufällige response_time (zwischen 50 und 800) und status_code (wähle zufällig aus 200, 200, 200, 404, 500 – damit 200 häufiger vorkommt).
+
+
+hier --->  Wandle die Objekte per List Comprehension in Dictionaries um und speichere sie als JSON in services.json.
+
+
+
+
 Teil 3 – checker.py (Kern: alle Konzepte zusammen)
 Das Tool liest services.json und erstellt einen Report mit dieser Struktur:
 pythonreport = {
@@ -33,9 +40,15 @@ pythonreport = {
 }
 Die Regeln, das ist der eigentliche Drill:
 Erstens, lies die JSON ein und gehe mit einer Schleife durch die Services. Zähle direkt ins Dictionary, keine Zwischenvariablen: report["nach_status"][str(code)] += 1.
+
 Zweitens, für jeden Service: erhöhe gesamt, und je nachdem ob gesund True oder False ist, erhöhe gesund oder ungesund. Die ungesunden Services hängst du als Namen an die Liste ungesunde_services an.
 Drittens, finde den langsamsten Service. Nutze dafür max() mit key=lambda auf die response_time. Speichere nur den Namen des langsamsten in report["langsamste"].
 Viertens, json.dump steht genau einmal im Code, nach der Schleife.
+
+
+
+
+
 Teil 4 – argparse und Exit-Codes (das neue Konzept)
 Mach aus checker.py ein CLI-Tool mit drei Argumenten:
 

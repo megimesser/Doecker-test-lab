@@ -32,7 +32,6 @@ def reportmerger(report=pythonreport,file=k):
             report["ungesund"] = report.get("ungesund", 0) + 1
             report["ungesunde_services"].append(_["name"])
         
-
         #Status
 
         if _["status"] == 200:
@@ -43,22 +42,28 @@ def reportmerger(report=pythonreport,file=k):
             report["nach_status"]["500"] = report["nach_status"].get("500", 0) + 1
         
 
-        #
+        # Das mit Key_lambda habe ich nicht gelesen, deshalb habe ich es so umgesetzt 
+
         if _["responetime"] > hilfsvariable:
             hilfsvariable = _["responetime"]
             langsamstes = _["name"]
 
+        #hier nochmal mit lambda
+        k = (max(file, key=lambda k:k["responetime"]))
 
-    report["langsamste"] = langsamstes
+
+    #report["langsamste"] = langsamstes
+    report["langsamste"] = k
+    
     
         
 
 
-    
-
-        
-    
     return report
 
 
-print(reportmerger())
+
+
+
+with open(OUTPUT,"w") as k:
+    json.dump(reportmerger(), k, indent=4)

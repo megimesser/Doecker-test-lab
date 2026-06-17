@@ -53,3 +53,9 @@ SMS_EMPFAENGER = os.environ.get("SMS_EMPFAENGER", "")
 
 #verzeichnis.py 
 CMS_EINTRÄGE = 149
+
+
+#nachrichten.py
+GOOGLE_KEY = os.environ.get("GOOGLE_KEY","")
+ACCOUNT = os.environ.get("ACCOUNT", "")
+TARGET = os.environ.get("TARGET","")

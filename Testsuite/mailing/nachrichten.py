@@ -3,13 +3,12 @@ import smtplib
 from email.message import EmailMessage
 from datetime import *
 import os 
+from Testsuite.config import GOOGLE_KEY,TXT_PATH,ACCOUNT,TARGET
 
 
+def sender(GOOGLE_KEY, ACCOUNT, TARGET):
 
-
-def sender(GOOGLE_KEY=""):
-
-    with open ("test.txt" , "r") as file:
+    with open (TXT_PATH , "r") as file:
         context = file.read()
     print(context)
 
@@ -24,11 +23,10 @@ def sender(GOOGLE_KEY=""):
     
 
     #app - pw unbedingt nach Fertigstellung löschen 
-    ACCOUNT="megimesser96@gmail.com"
-    TARGET="heinze.obach@web.de"
+    
 
     msg = EmailMessage()
-    msg["Subject"] = f"{cut_datum}"
+    msg["Subject"] = f" Testbericht für den {cut_datum}"
     msg["From"] = ACCOUNT
     msg["To"] = TARGET
 
@@ -40,3 +38,7 @@ def sender(GOOGLE_KEY=""):
     print("fertig")
 
 
+
+if __name__ == "__main__":
+    sender(GOOGLE_KEY,ACCOUNT,TARGET)
+    

@@ -27,10 +27,14 @@ from Testsuite.sender import sms_sender, sms_searcher
 from Testsuite.cms.verzeichnis import verzeichnis, zaehle_items,counter_cms
 
 
+from Testsuite.mailing.nachrichten import sender
+
+
+
 
 
 # Variablendefinition
-#service = get_service()
+service = get_service()
 
 
 
@@ -41,45 +45,45 @@ from Testsuite.cms.verzeichnis import verzeichnis, zaehle_items,counter_cms
 
 
 #Nachrichten im Postfach werden gelöscht
-#delete_all(service)
+delete_all(service)
 
 #Textdatei wird geleert 
-#message_emptyer(TXT_PATH, message="")
+message_emptyer(TXT_PATH, message="")
 
 #Request + in Testdatei schreiben
-#text_writer(TXT_PATH, requester(HAUPTSEITEN_LINKS))   # Reihenfolge: path, message
-#text_writer(TXT_PATH, requester(UNTERSEITEN_LINKS))
-#text_writer(TXT_PATH, requester(UNTERSEITEN_AUSSTELLER))
-#text_writer(TXT_PATH, requester(UNTERSEITEN_BESUCHER))
+text_writer(TXT_PATH, requester(HAUPTSEITEN_LINKS))   # Reihenfolge: path, message
+text_writer(TXT_PATH, requester(UNTERSEITEN_LINKS))
+text_writer(TXT_PATH, requester(UNTERSEITEN_AUSSTELLER))
+text_writer(TXT_PATH, requester(UNTERSEITEN_BESUCHER))
 
 
 
 
 
 # Nachrichten versenden 
-#aussteller(TEST_MAIL,TEST_NUMMER,MESSAGE)
-#besucher(TEST_MAIL,TEST_NUMMER,MESSAGE)
+aussteller(TEST_MAIL,TEST_NUMMER,MESSAGE)
+besucher(TEST_MAIL,TEST_NUMMER,MESSAGE)
 
 
 
 # Karten versenden 
-#messe_looper(TEST_MAIL,MESSE_LOOP)
+messe_looper(TEST_MAIL,MESSE_LOOP)
 
 
 
 
 
 # Austeller 
-#messe_looper_anmeldung(TEST_MAIL,MESSE_LOOP_A)
+messe_looper_anmeldung(TEST_MAIL,MESSE_LOOP_A)
 # Fehlersucher 
 
 
 # cms
-#counter_cms(verzeichnis())
+counter_cms(verzeichnis())
 
 
 # warten bis Schnittstellen alle Nachrichten versendet haben 
-#time.sleep(60)
+time.sleep(60)
 
 
 #SMS - Sender
@@ -88,3 +92,4 @@ from Testsuite.cms.verzeichnis import verzeichnis, zaehle_items,counter_cms
 
 main_reader()
 sms_searcher(TXT_PATH)
+sender(GOOGLE_KEY,TXT_PATH,TARGET)
