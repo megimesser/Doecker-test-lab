@@ -1,0 +1,72 @@
+[
+    {
+        "name": "admin-db",
+        "url": "www.admin-db.com",
+        "responetime": 800,
+        "status": 404,
+        "gesund": false
+    },
+    {
+        "name": "test-api",
+        "url": "www.test-api.com",
+        "responetime": 782,
+        "status": 200,
+        "gesund": false
+    },
+    {
+        "name": "user-db",
+        "url": "www.user-db.com",
+        "responetime": 345,
+        "status": 200,
+        "gesund": true
+    },
+    {
+        "name": "payment-api",
+        "url": "www.payment-api.com",
+        "responetime": 254,
+        "status": 200,
+        "gesund": true
+    },
+    {
+        "name": "admin-db",
+        "url": "www.admin-db.com",
+        "responetime": 273,
+        "status": 200,
+        "gesund": true
+    },
+    {
+        "name": "cloud-service",
+        "url": "www.cloud-service.com",
+        "responetime": 453,
+        "status": 200,
+        "gesund": true
+    },
+    {
+        "name": "credential-db",
+        "url": "www.credential-db.com",
+        "responetime": 788,
+        "status": 404,
+        "gesund": false
+    },
+    {
+        "name": "test-db",
+        "url": "www.test-db.com",
+        "responetime": 186,
+        "status": 200,
+        "gesund": true
+    },
+    {
+        "name": "user-db",
+        "url": "www.user-db.com",
+        "responetime": 752,
+        "status": 200,
+        "gesund": false
+    },
+    {
+        "name": "payment-api",
+        "url": "www.payment-api.com",
+        "responetime": 282,
+        "status": 200,
+        "gesund": true
+    }
+]
