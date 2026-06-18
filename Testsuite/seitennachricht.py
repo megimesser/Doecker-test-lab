@@ -1,16 +1,28 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import Select
 import time
 
 from Testsuite.config import TEST_MAIL, TEST_NUMMER, MESSAGE
 
-
+"""
 driver = webdriver.Chrome(
     service=Service(ChromeDriverManager().install())
 )
+"""
+
+
+def get_driver():
+    options = Options()
+    options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+
+    service = Service("/usr/bin/chromedriver")
+    return webdriver.Chrome(service=service, options=options)
 
 def aussteller(TEST_MAIL, TEST_NUMMER, MESSAGE):
     driver.get("https://www.wohnbautrend.de")

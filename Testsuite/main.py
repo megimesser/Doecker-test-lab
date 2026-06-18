@@ -92,4 +92,4 @@ time.sleep(60)
 
 main_reader()
 sms_searcher(TXT_PATH)
-sender(GOOGLE_KEY,TXT_PATH,TARGET)
+sender(GOOGLE_KEY,ACCOUNT,TARGET)
