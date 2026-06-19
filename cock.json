@@ -1,0 +1,23 @@
+{
+    "gesamt": 10,
+    "gesund": 6,
+    "ungesund": 4,
+    "nach_status": {
+        "200": 8,
+        "404": 2,
+        "500": 0
+    },
+    "langsamste": {
+        "name": "admin-db",
+        "url": "www.admin-db.com",
+        "responetime": 800,
+        "status": 404,
+        "gesund": false
+    },
+    "ungesunde_services": [
+        "admin-db",
+        "test-api",
+        "credential-db",
+        "user-db"
+    ]
+}

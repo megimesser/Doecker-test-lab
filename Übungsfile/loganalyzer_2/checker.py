@@ -3,6 +3,7 @@ import argparse
 import sys
 from config import INPUT
 
+##test
 
 parser = argparse.ArgumentParser(description="Analysiert health_report.json")
 
@@ -116,5 +117,5 @@ def opener(file_path):
     print("sys.exit(0)")
     sys.exit(0)
 
-
+#test
 opener(OUTPUT)

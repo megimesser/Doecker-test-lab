@@ -1,29 +1,30 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select, WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-from Testsuite.config import TEST_MAIL,MESSE_LOOP_A
+from Testsuite.config import TEST_MAIL, MESSE_LOOP_A
 
+
+def get_driver():
+    options = Options()
+    options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    service = Service("/usr/bin/chromedriver")
+    return webdriver.Chrome(service=service, options=options)
 
 
 def messe_looper_anmeldung(TEST_MAIL, MESSE_LOOP_A):
-    for i in MESSE_LOOP_A:
-        anmeldung(TEST_MAIL, i)
-
+    for messe in MESSE_LOOP_A:
+        anmeldung(TEST_MAIL, messe)
 
 
 def anmeldung(TEST_MAIL, messe):
-
-   
-
-    driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install())
-    )
-
+    driver = get_driver()
     wait = WebDriverWait(driver, 10)
 
     try:
@@ -32,70 +33,37 @@ def anmeldung(TEST_MAIL, messe):
         print(driver.title)
         print(messe)
 
-        # Felder finden
         ansprechpartner_input = wait.until(
-            EC.presence_of_element_located((By.ID, "Ansorechpartner"))
+            EC.presence_of_element_located((By.ID, "Ansprechpartner"))
         )
-
         unternehmen_input = driver.find_element(By.ID, "Unternehmen")
-
         branche_dropdown = driver.find_element(By.ID, "Branche")
-
-        # ID ohne Punkt!
         mail_input = driver.find_element(By.ID, "Email-4")
-
         number_input = driver.find_element(By.ID, "Telefonnummer")
-
         message_input = driver.find_element(By.ID, "Nachricht")
-
         messe_dropdown = driver.find_element(By.ID, "Messeauswahl")
-
         checkbox = driver.find_element(By.ID, "Aussteller")
+        submit = driver.find_element(By.ID, "submitter")
 
-    
-
-
-
-        submit = driver.find_element(
-            By.ID,
-            "submitter"
-        )
-
-        # Formular ausfüllen
         ansprechpartner_input.send_keys("Testautomation")
-        time.sleep(1)
         unternehmen_input.send_keys("Testautomation")
-        time.sleep(1)
-        select = Select(branche_dropdown)
-        time.sleep(1)
-        select.select_by_visible_text("Camping")
-        time.sleep(1)
-        mail_input.send_keys(TEST_MAIL)
-        time.sleep(1)
-        number_input.send_keys("01602986822")
-        time.sleep(1)
-        message_input.send_keys("Dies ist ein automatisches Testscript")
-        time.sleep(1)
 
-        select = Select(messe_dropdown)
-        select.select_by_visible_text(messe)
+        Select(branche_dropdown).select_by_visible_text("Camping")
+
+        mail_input.send_keys(TEST_MAIL)
+        number_input.send_keys("01602986822")
+        message_input.send_keys("Dies ist ein automatisches Testscript")
+
+        Select(messe_dropdown).select_by_visible_text(messe)
 
         checkbox.click()
-
-        time.sleep(1)
-
         submit.click()
-        
 
-
-        time.sleep(1)
-
-        
+        time.sleep(2)
 
     finally:
         driver.quit()
 
 
 if __name__ == "__main__":
-    #freikarte(test_mail, messe)
-    messe_looper_anmeldung(TEST_MAIL,MESSE_LOOP_A)
+    messe_looper_anmeldung(TEST_MAIL, MESSE_LOOP_A)
