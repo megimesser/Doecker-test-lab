@@ -1,10 +1,44 @@
-import json 
-from config import *
+import json
+import argparse
+import sys
+from config import INPUT
 
-with open(INPUT,"r") as f: 
-    k = json.load(f)
+
+parser = argparse.ArgumentParser(description="Analysiert health_report.json")
+
+parser.add_argument(
+    "--output",
+    help="Überschreibt Default-Ausgabepfad"
+)
+
+parser.add_argument(
+    "--status",
+    type=int,
+    choices=[404, 500, 200],
+    help="zeigt Anzahl der Services mit Status-Code"
+)
+
+parser.add_argument(
+    "--strict",
+    action="store_true"
+)
+
+args = parser.parse_args()
+
+# OUTPUT definieren (Fallback auf INPUT wenn nicht gesetzt)
+OUTPUT = args.output if args.output is not None else "report.json"
 
 
+# -------------------------
+# INPUT laden
+# -------------------------
+with open(INPUT, "r") as f:
+    services = json.load(f)
+
+
+# -------------------------
+# Report Basis
+# -------------------------
 pythonreport = {
     "gesamt": 0,
     "gesund": 0,
@@ -15,55 +49,72 @@ pythonreport = {
 }
 
 
-def reportmerger(report=pythonreport,file=k):
+# -------------------------
+# Report Berechnung
+# -------------------------
+def reportmerger(data):
+    report = pythonreport.copy()
 
-    langsamstes = None
-    hilfsvariable = 0
+    report["gesamt"] = len(data)
 
-    report["gesamt"] = report.get("gesamt", 0) + len(file)
+    langsamstes = max(data, key=lambda x: x["responetime"])
+    report["langsamste"] = langsamstes
 
-    for _ in file: 
-
-        #Health
-
-        if _["gesund"] == True:
-            report["gesund"] = report.get("gesund", 0) + 1
+    for service in data:
+        # Health
+        if service["gesund"]:
+            report["gesund"] += 1
         else:
-            report["ungesund"] = report.get("ungesund", 0) + 1
-            report["ungesunde_services"].append(_["name"])
-        
-        #Status
+            report["ungesund"] += 1
+            report["ungesunde_services"].append(service["name"])
 
-        if _["status"] == 200:
-            report["nach_status"]["200"] = report["nach_status"].get("200", 0) + 1
-        elif _["status"]  == 404:
-            report["nach_status"]["404"] = report["nach_status"].get("404", 0) + 1
-        elif _["status"] == 500:
-            report["nach_status"]["500"] = report["nach_status"].get("500", 0) + 1
-        
-
-        # Das mit Key_lambda habe ich nicht gelesen, deshalb habe ich es so umgesetzt 
-
-        if _["responetime"] > hilfsvariable:
-            hilfsvariable = _["responetime"]
-            langsamstes = _["name"]
-
-        #hier nochmal mit lambda
-        k = (max(file, key=lambda k:k["responetime"]))
-
-
-    #report["langsamste"] = langsamstes
-    report["langsamste"] = k
-    
-    
-        
-
+        # Status
+        status = str(service["status"])
+        if status in report["nach_status"]:
+            report["nach_status"][status] += 1
 
     return report
 
 
+# -------------------------
+# Report erstellen
+# -------------------------
+final_report = reportmerger(services)
 
 
+# -------------------------
+# OUTPUT schreiben
+# -------------------------
+with open(OUTPUT, "w") as f:
+    json.dump(final_report, f, indent=4)
 
-with open(OUTPUT,"w") as k:
-    json.dump(reportmerger(), k, indent=4)
+
+# -------------------------
+# Status Ausgabe
+# -------------------------
+def args_status(status, file_path):
+    with open(file_path) as f:
+        data = json.load(f)
+    return data["nach_status"].get(str(status), 0)
+
+
+if args.status is not None:
+    print(args_status(args.status, OUTPUT))
+
+
+# -------------------------
+# Strict Mode Exit
+# -------------------------
+def opener(file_path):
+    with open(file_path) as f:
+        data = json.load(f)
+
+    if args.strict and data["ungesund"] > 2:
+        print("sys.exit(1)")
+        sys.exit(1)
+
+    print("sys.exit(0)")
+    sys.exit(0)
+
+
+opener(OUTPUT)
