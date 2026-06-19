@@ -1,28 +1,23 @@
 name: Health Check
-
 on:
   push:
     branches:
       - main
     paths:
       - 'Übungsfile/loganalyzer_2/**'
-
 jobs:
   health-check:
     runs-on: ubuntu-latest
     steps:
       - name: Code auschecken
         uses: actions/checkout@v4
-
       - name: Python einrichten
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
       - name: Services generieren
         run: python generator.py
-        working-directory: loganalyzer_2
-
+        working-directory: Übungsfile/loganalyzer_2
       - name: Health Check ausführen
         run: python checker.py --strict
-        working-directory: loganalyzer_2
+        working-directory: Übungsfile/loganalyzer_2
