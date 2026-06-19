@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'loganalyzer_2/**'
+      - 'Übungsfile/loganalyzer_2/**'
 
 jobs:
   health-check:
