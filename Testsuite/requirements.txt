@@ -14,3 +14,6 @@ selenium
 twilio
 webdriver-manager
 yfinance
+argparse
+sys
+platform

@@ -1,22 +1,26 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select, WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+import os 
 
-from Testsuite.config import TEST_MAIL, MESSE_LOOP, VORNAME, NACHNAME
+from config import TEST_MAIL, MESSE_LOOP, VORNAME, NACHNAME
 
 
 def get_driver():
     options = Options()
-    options.add_argument("--headless")
+    options.add_argument("--headless=new")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
-    service = Service("/usr/bin/chromedriver")
-    return webdriver.Chrome(service=service, options=options)
+    options.add_argument("--window-size=1920,1080")
 
+    chrome_binary = os.environ.get("CHROME_BINARY")
+    if chrome_binary:
+        options.binary_location = chrome_binary
+
+    return webdriver.Chrome(options=options)
 
 def messe_looper(TEST_MAIL, MESSE_LOOP):
     for messe in MESSE_LOOP:
@@ -47,7 +51,8 @@ def freikarte(TEST_MAIL, messe):
 
         Select(messe_dropdown).select_by_visible_text(messe)
 
-        checkbox.click()
+        #checkbox.click()
+        driver.execute_script("arguments[0].click();", checkbox)
         time.sleep(1)
         submit.click()
         time.sleep(5)

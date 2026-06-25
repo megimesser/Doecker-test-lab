@@ -1,21 +1,11 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select, WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+from config import TEST_MAIL, MESSE_LOOP_A
+from driver_setup import get_driver
 
-from Testsuite.config import TEST_MAIL, MESSE_LOOP_A
 
-
-def get_driver():
-    options = Options()
-    options.add_argument("--headless")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-    service = Service("/usr/bin/chromedriver")
-    return webdriver.Chrome(service=service, options=options)
 
 
 def messe_looper_anmeldung(TEST_MAIL, MESSE_LOOP_A):

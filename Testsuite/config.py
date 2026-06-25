@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 TEST_MAIL = "testautomationheinze@gmail.com"
 VORNAME = "Testautomation"
 NACHNAME = "Testautomation"
-MESSE_LOOP = ["Messe Duisburg","Messe Kaiserslautern","Messe Moers", "Messe Düren", "Messe Düsseldorf", "Messe Hückelhoven - (bald erhältlich)"]
+MESSE_LOOP = ["Messe Duisburg","Messe Kaiserslautern","Messe Moers", "Messe Düren", "Messe Düsseldorf", "Messe Hückelhoven"]
 
 
 #Seitenaufruf 
@@ -59,3 +59,7 @@ CMS_EINTRÄGE = 149
 GOOGLE_KEY = os.environ.get("GOOGLE_KEY","")
 ACCOUNT = os.environ.get("ACCOUNT", "")
 TARGET = os.environ.get("TARGET","")
+
+
+#Für Ausführung auf CentOS 
+CHROME_BINARY= "/usr/bin/chromium-browser"

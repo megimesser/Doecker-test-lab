@@ -1,7 +1,10 @@
-name: Health Check # angezeigte Name innerhalb der Github - Oberfläche
+name: CI# angezeigte Name innerhalb der Github - Oberfläche
 
 on:    # on: definiert wann die Pipeline läuft - hier bei jedem push auf den Main Branch
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
     #paths:
@@ -26,13 +29,23 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      
+      - name: Abhängigkeiten installieren
+        run: |
+          pip install -r requirements.txt
+          pip install pytest
+      
+     # Linter Korrekturen durchführen - bricht aktuell die Tests ab 
+      - name: Linting
+        run: pip install ruff && ruff check .
 
       #Script wird ausgeführt
 
-      - name: Services generieren
-        run: python generator.py
       
-      
-
       - name: Health Check ausführen
-        run: python checker.py --strict
+        run: python pipeline.py --strict
+      
+      - name: Tests ausführen 
+        run: pytest
+
+      
